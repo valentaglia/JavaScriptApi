@@ -47,7 +47,7 @@ class Application {
 
     createStore(obj){
         createStoreValidator(obj.getName(),obj.getWebsite())
-        const store= StoreFactory.create(obj)       
+        const store= StoreFactory.make(obj)       
         const repo= new StoreRepository
         repo.create(store)
         return store
