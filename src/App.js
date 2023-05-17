@@ -2,6 +2,7 @@ const {registerValidator} = require('./validators/registerValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
+const mensaje = require('./models/Message')
 
 class Application {
     constructor() {
@@ -39,7 +40,9 @@ class Application {
 
     signOut() {
         this.user = null
-    }
+    }  
 }
+
+
 
 module.exports = Application

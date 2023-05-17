@@ -9,8 +9,10 @@ try {
         'cosme@fulanito.fox',   // email
         'secretoo'             // password
     )
+  
 
     console.log(result)
 } catch (e) {
     console.log(e.message)
 }
+

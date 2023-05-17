@@ -21,31 +21,34 @@ class Message {
         return this.#dislikes;
     }
 
-    getContenidos() {
+    getContenido() {
         return this.#contenido;
     }
 
     Like() {
-        this.like = true;
-        this.dislike = false;
-    }
-
-    Dislike() {
-        if(!this.dislike){
-            this.like = false;
-            this.dislike = true;
-        }else{
-            this.dislike = false;
+        this.#likes = true;
+        this.#dislikes = false;
+      }
+    
+      Dislike() {
+        if (!this.#dislikes) {
+          this.#likes = false;
+          this.#dislikes = true;
+        } else {
+          this.#dislikes = false;
         }
-        
-    }
-
-    find(id) {
-        if (this.id === id) {
-          return this;
-        }
-        return null;
       }
 
+    find(id) {
+        const message = new Message();
+        message.#id = 1;
+        message.#contenido = "Hola"
+        
+        if (message.getId() === id) {
+            return message;
+        }
+        return null;
+    }
 }
+
 module.exports = Message;
