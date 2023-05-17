@@ -11,15 +11,4 @@ function extraerMenciones(mensaje) {
 
 module.exports = extraerMenciones;
 
-// Cuando el usuario envíe el mensaje usando una mención
-let mensaje = "Hola @profesor tengo una consulta";
-let menciones = extraerMenciones(mensaje);
-
-let mensajeConMenciones = {
-    user_id: "1234",
-    message: mensaje,
-    mentions: menciones
-};
-
-console.log(mensajeConMenciones);
 
