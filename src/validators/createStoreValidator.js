@@ -1,7 +1,7 @@
 module.exports = {
     createStoreValidator: function (name, website) {
         const websiteRegex = new RegExp(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/, 'ig')
-        const nameMinLenght=5
+        const nameMinLenght=3
         const nameMaxLenght=25
         if (!websiteRegex.test(website)) {
             throw new Error('El website es invalido')
