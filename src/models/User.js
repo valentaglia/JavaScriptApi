@@ -34,7 +34,6 @@ class User {
     isSamePassword(pwd) {
         return pwd === this.password;
     }
-
     enviarMensaje(mensaje) {
         let menciones = extraerMenciones(mensaje);
 
@@ -46,6 +45,8 @@ class User {
 
         console.log(mensajeConMenciones);
     }
+
+
 }
 
 module.exports = User;
