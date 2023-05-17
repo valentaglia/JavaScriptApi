@@ -1,7 +1,11 @@
 const {registerValidator} = require('./validators/registerValidator')
+const {categoryValidator} = require('./validators/categoryValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
+const CategoryFactory = require('./factories/CategoryFactory')
+const userRepository = require('./repositories/CategoryRepository')
+const CategoryRepository = require('./repositories/CategoryRepository')
 
 class Application {
     constructor() {
@@ -40,6 +44,19 @@ class Application {
     signOut() {
         this.user = null
     }
+
+    crearCategoria(name){
+        categoryValidator(name)
+        const category = CategoryFactory.make({
+            name
+        })
+        
+        const repoC = new CategoryRepository
+        repoC.create(category)
+
+        return category
+    }
+
 }
 
 module.exports = Application
