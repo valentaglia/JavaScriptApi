@@ -2,12 +2,13 @@ const {registerValidator} = require('./validators/registerValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-
+const Conversation = require("./models/Conversation");
 class Application {
     constructor() {
         this.name = 'Zoom'
         this.version = '1.0.0'
         this.user = null
+        this.contact = null 
     }
 
     registrar(email, password) {
@@ -37,6 +38,11 @@ class Application {
         // setear el User como this.user
     }
 
+    createConversation(email){
+        const receiver = this.user.findContact(email)
+        const conversation = new Conversation(this.user, receiver);
+        conversation.sendMessage()
+    }
     signOut() {
         this.user = null
     }
