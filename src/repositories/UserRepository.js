@@ -1,7 +1,6 @@
 const User = require('../models/User')
 const Factory = require('../factories/UserFactory')
 const Repository = require('./Repository')
-
 class UserRepository extends Repository {
     file = './users.json'
 
