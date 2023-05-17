@@ -69,10 +69,11 @@ class Application {
     setUser(user) {
         this.user = user;
     }
-
     sendMessage(message) {
         this.chat.sendMessage(message);
     }
+
+
 }
 
 

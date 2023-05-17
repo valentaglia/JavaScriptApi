@@ -3,7 +3,6 @@
 // Buscar todas las menciones en el mensaje
 // Devolver las menciones encontradas
 
-
 function extraerMenciones(mensaje) {
     const regex = /@(\w+)/g;
     const menciones = mensaje.match(regex);
@@ -23,3 +22,4 @@ let mensajeConMenciones = {
 };
 
 console.log(mensajeConMenciones);
+
