@@ -1,16 +1,14 @@
-// Importación de la clase App
-const App = require('./src/App')
+const App = require('./src/App');
 
-// Instancia de la clase App
-const app = new App
+// Crear una instancia de la aplicación
+const app = new App();
 
-try {
-    const result = app.registrar(
-        'cosme@fulanito.fox',   // email
-        'secretoo'             // password
-    )
+// Registrar un usuario
+app.registrar('user@example.com', 'password');
 
-    console.log(result)
-} catch (e) {
-    console.log(e.message)
-}
+// Iniciar sesión del usuario
+app.login('user@example.com', 'password');
+
+// Enviar un mensaje
+const mensaje = 'Hola @profesor tengo una consulta';
+app.sendMessage(mensaje);

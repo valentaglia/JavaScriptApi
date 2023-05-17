@@ -22,8 +22,8 @@ class UserRepository extends Repository {
     create(user) {
         if (user instanceof User) {
             this.save({
-                email : user.getEmail(),
-                password : user.getPassword(),
+                email: user.getEmail(),
+                password: user.getPassword(),
             })
 
             return;
@@ -31,6 +31,12 @@ class UserRepository extends Repository {
 
         throw new Error('Se requiere una instancia de User')
     }
+    findByEmail(email) {
+        let content = this.read();
+        let user = content.find((obj => obj.email == email))
+        return Factory.make(user)
+    }
 }
+
 
 module.exports = UserRepository
