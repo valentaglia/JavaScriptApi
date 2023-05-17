@@ -1,7 +1,11 @@
 const {registerValidator} = require('./validators/registerValidator')
+const {createStoreValidator} = require('./validators/createStoreValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
+const StoreFactory = require('./factories/StoreFactory')
+const Store = require('./models/Store')
+const StoreRepository = require('./repositories/StoreRepository')
 
 class Application {
     constructor() {
@@ -39,6 +43,14 @@ class Application {
 
     signOut() {
         this.user = null
+    }
+
+    createStore(obj){
+        createStoreValidator(obj.getName(),obj.getWebsite())
+        const store= StoreFactory.create(obj)       
+        const repo= new StoreRepository
+        repo.create(store)
+        return store
     }
 }
 
