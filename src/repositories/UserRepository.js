@@ -2,7 +2,7 @@ const User = require('../models/User')
 const Factory = require('../factories/UserFactory')
 const Repository = require('./Repository')
 class UserRepository extends Repository {
-    file = './users.json'
+    file = 'D:/ORT/2do año Primer Cuatrimestre/TP2/ProyectoTP2/ORT-2023-1/src/users.json'
 
     byId(id) {
         if (isNaN(id)) {
@@ -21,6 +21,7 @@ class UserRepository extends Repository {
     create(user) {
         if (user instanceof User) {
             this.save({
+                id: user.getId(),
                 email : user.getEmail(),
                 password : user.getPassword(),
             })
