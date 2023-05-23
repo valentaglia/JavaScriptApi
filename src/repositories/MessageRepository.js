@@ -7,8 +7,8 @@ class MessageRepository extends Repository {
       this.messages.push(message);
     }
   
-    getMessage(index) {
-      return this.messages[index];
+    getMessageById(id) {
+      return this.messages.find(message => message.id === id);
     }
   }
   
