@@ -1,4 +1,4 @@
-class MessageRepository {
+class MessageRepository extends Repository {
     constructor() {
       this.messages = [];
     }
