@@ -1,6 +1,6 @@
 class Message {
     constructor(content) {
-      this.content = content;
+      this.content = String(content);
     }
   
     getStats() {
