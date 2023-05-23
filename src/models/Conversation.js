@@ -7,10 +7,10 @@ class Conversation{
     constructor(initiator, receiver){
         this.#receiver = this.toContact(receiver)
         this.#initiator = initiator
+        this.info()
     }
 
-    sendMessage(){
-        console.log(this.#initiator.getId())
+    info(){
         let message = {
             initiator_id: this.#initiator.getId(),
             receiver_id: this.#receiver.getId(),
@@ -19,7 +19,6 @@ class Conversation{
         }
         let content = JSON.stringify(message)
         console.log(content);
-
     }
     // devuelve el objeto user del contacto
     toContact(receiver){
