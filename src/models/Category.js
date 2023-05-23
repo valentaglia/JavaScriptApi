@@ -1,5 +1,6 @@
 class Category {
     #name
+    #id
 
 
     setName(name) {
@@ -8,6 +9,14 @@ class Category {
 
     getName() {
         return this.#name
+    }
+
+    setId(id){
+        this.#id = id
+    }
+
+    getId(){
+        return this.#id
     }
 }
 
