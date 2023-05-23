@@ -2,7 +2,7 @@ const User = require('../models/User')
 const Factory = require('../factories/UserFactory')
 const Repository = require('./Repository')
 class UserRepository extends Repository {
-    file = 'D:/ORT/2do año Primer Cuatrimestre/TP2/ProyectoTP2/ORT-2023-1/src/users.json'
+    file = './users.json'
 
     byId(id) {
         if (isNaN(id)) {
