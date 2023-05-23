@@ -13,9 +13,12 @@ repository.addMessage(message2);
 const messageId = 1;
 const messageFromRepository = repository.getMessageById(messageId);
 
-//estadísticas del mensaje
-const stats = messageFromRepository.getStats();
-console.log(stats);
+if (messageFromRepository !== null) {
+    const stats = messageFromRepository.getStats();
+    console.log(stats);
+  } else {
+    console.log('No se encontró el mensaje en el repositorio.');
+  }
 
 //Si hacemos console.log(stats) se muestra lo siguiente:
 // {
