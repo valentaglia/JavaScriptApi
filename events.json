@@ -1,0 +1,121 @@
+[
+    {
+        "events": 0,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "events": 1,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "events": 2,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "events": 3,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "events": 4,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "events": 5,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "events": 6,
+        "schedule": {
+            "2023-06-15": [
+                {
+                    "start_time": "17:30",
+                    "duration": 30,
+                    "end_time": "18:00",
+                    "guests": [
+                        1,
+                        5,
+                        78
+                    ]
+                }
+            ]
+        }
+    }
+]
