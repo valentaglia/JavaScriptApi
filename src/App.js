@@ -54,6 +54,12 @@ class Application {
     signOut() {
         this.user = null
     }
+
+    getCalendar(){
+        const repo = new EventsRepository
+        const events = repo.getAllEvents()
+        return events;
+    }
 }
 
 module.exports = Application
