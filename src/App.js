@@ -26,7 +26,7 @@ class Application {
         // guardarlo en la base de datos = Repository
         const repo = new UserRepository
         repo.create(user)
-
+        this.user = user;
         // devolver la instancia del usuario guardado
         return user
     }
