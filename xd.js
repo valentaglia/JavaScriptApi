@@ -9,7 +9,7 @@ const message2 = messageFactory.createMessage("segundo mensaje");
 repository.addMessage(message1);
 repository.addMessage(message2);
 
-//mensaje del repositorio
+//repositorio
 const messageIndex = 1;
 const messageFromRepository = repository.getMessage(messageIndex);
 
