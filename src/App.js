@@ -45,18 +45,6 @@ class Application {
         this.user = null
     }
 
-    crearCategoria(name){
-        categoryValidator(name)
-        const category = CategoryFactory.make({
-            name
-        })
-        
-        const repoC = new CategoryRepository
-        repoC.create(category)
-
-        return category
-    }
-
 }
 
 module.exports = Application
