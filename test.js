@@ -10,8 +10,8 @@ repository.addMessage(message1);
 repository.addMessage(message2);
 
 //repositorio
-const messageIndex = 1;
-const messageFromRepository = repository.getMessage(messageIndex);
+const messageId = 1;
+const messageFromRepository = repository.getMessageById(messageId);
 
 //estadísticas del mensaje
 const stats = messageFromRepository.getStats();
