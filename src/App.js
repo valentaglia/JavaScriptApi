@@ -38,11 +38,6 @@ class Application {
         // setear el User como this.user
     }
 
-    createConversation(email){
-        const receiver = this.user.findContact(email)
-        const conversation = new Conversation(this.user, receiver);
-        conversation.sendMessage()
-    }
     signOut() {
         this.user = null
     }
