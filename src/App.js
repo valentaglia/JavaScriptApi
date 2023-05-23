@@ -57,8 +57,9 @@ class Application {
 
         // setear el User como this.user
         this.user = user
-        // devolver el usuario que inició sesión
-        this.chat.currentUser = this.user;
+
+        
+ 
         return user
     }
 
