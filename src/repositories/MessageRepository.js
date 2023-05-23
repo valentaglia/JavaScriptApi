@@ -1,18 +1,23 @@
-const Repository = require('./Repository')
+const Repository = require('./Repository');
+const MessageFactory = require('../factories/MessageFactory');
 
 class MessageRepository extends Repository {
-    constructor() {
-      super();
-      this.messages = [];
-    }
-  
-    addMessage(message) {
-      this.messages.push(message);
-    }
-  
-    getMessageById(id) {
-      return this.messages.find(message => message.id === id);
-    }
+  constructor() {
+    super();
+    this.messages = [];
+    this.nextId = 1;
   }
-  
-  module.exports = MessageRepository;
+
+  addMessage(content) {
+    const messageFactory = new MessageFactory();
+    const message = messageFactory.createMessage(content);
+     message.id = this.nextId++;
+    this.messages.push(message);
+  }
+
+  getMessageById(id) {
+    return this.messages.find(message => message.id === id) || null;
+  }
+}
+
+module.exports = MessageRepository;
