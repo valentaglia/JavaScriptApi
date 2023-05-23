@@ -1,3 +1,6 @@
+const extraerMenciones = require('../utils/extraerMenciones');
+
+
 class Chat {
     constructor() {
         this.users = {};

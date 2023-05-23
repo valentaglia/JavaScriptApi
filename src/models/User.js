@@ -1,4 +1,4 @@
-const extraerMenciones = require('../utils/extraerMenciones');
+const extraerMenciones = require('./utils/extraerMenciones');
 
 class User {
     constructor() {
