@@ -1,7 +1,7 @@
 const Product = require('../models/Product')
 
 class ProductFactory {
-    static create(obj){
+    static make(obj){
         let product = new Product;
 
         product.setName(obj.name);
