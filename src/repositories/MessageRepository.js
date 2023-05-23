@@ -1,5 +1,8 @@
+const Repository = require('./Repository')
+
 class MessageRepository extends Repository {
     constructor() {
+      super();
       this.messages = [];
     }
   
