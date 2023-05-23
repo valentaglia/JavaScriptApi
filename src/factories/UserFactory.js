@@ -11,13 +11,6 @@ class UserFactory {
 
         return user
     }
-    //Metodo para obtener el objeto userContact
-    static getContact(obj){
-        let user = new User
-        user.setId(obj.id)
-        user.setEmail(obj.email)
-        return user
-    }
 }
 
 module.exports = UserFactory
