@@ -2,16 +2,13 @@ const extraerMenciones = require('../utils/extraerMenciones');
 
 
 class Chat {
-    constructor() {
+    constructor(user) {
         this.users = [];
-        this.currentUser = null;
+        this.currentUser = user;
     }
 
-
     sendMessage(message) {
-       
-            this.currentUser.enviarMensaje(message);
-        
+        this.currentUser.enviarMensaje(message);
     }
 }
 
