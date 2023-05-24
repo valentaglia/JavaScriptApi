@@ -4,8 +4,8 @@ const repository = new MessageRepository();
 const messageFactory = new MessageFactory();
 
 // Crear mensajes y agregarlos al repositorio
-const message1 = messageFactory.createMessage("primer mensaje");
-const message2 = messageFactory.createMessage("segundo mensaje");
+const message1 = messageFactory.make("primer mensaje");
+const message2 = messageFactory.make("segundo mensaje");
 repository.addMessage(message1);
 repository.addMessage(message2);
 
