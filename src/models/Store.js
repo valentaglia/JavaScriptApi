@@ -1,4 +1,5 @@
 class Store{
+    #id
     #name
     #website
     setName(name) {
@@ -13,6 +14,12 @@ class Store{
     }
     getWebsite(){
         return this.#website
+    }
+    setId(id){
+        this.#id
+    }
+    getId(){
+        return this.#id
     }
 }
 module.exports = Store
