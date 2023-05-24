@@ -16,3 +16,20 @@
 }
 */
 
+
+try {
+
+    app.createConversation("prueba@gmail.com")
+    console.log(result)
+} catch (e) {
+    console.log(e.message)
+}
+
+//Metodo eliminado de App.js
+/*
+createConversation(email){
+    const receiver = this.user.findContact(email)
+    const conversation = new Conversation(this.user, receiver);
+    conversation.sendMessage()
+}
+*/
