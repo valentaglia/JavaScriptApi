@@ -33,13 +33,13 @@ const estructura = _.template(message.buildMessage(), {
 
 console.log(estructura)
 //Data para testear
-//let data = {
-//    de : "cosme-fulanito",
-//    para : "hermano-funalito",
-//    asunto : "Saludo",
-//    cuerpo : "Hola, ¿Como estas?"
-//}
+let data = {
+    de : "cosme-fulanito",
+    para : "hermano-funalito",
+    asunto : "Saludo",
+    cuerpo : "Hola, ¿Como estas?"
+}
 //Utilizo la estructura llamada desde la clase purchase_email.
-//const mensaje = estructura(data)
+const mensaje = estructura(data)
 
-//console.log(mensaje)
+console.log(mensaje)
