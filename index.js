@@ -4,6 +4,10 @@ const App = require('./src/App')
 // Instancia de la clase App
 const app = new App
 
+const Mailer = require('./src/AppMailer')
+
+const appMailer = new Mailer
+
 const PurchaseEmail = require('./src/models/purchase_email')
 
 const message = new PurchaseEmail
@@ -20,7 +24,7 @@ try {
 }
 
 //La app se trae el objeto lodash
-const _ = app.getMailer()
+const _ = appMailer.getMailer()
 // El archivo "purchase-email.js" tiene la formula del mensaje
 //
 const estructura = _.template(message.buildMessage(), {
