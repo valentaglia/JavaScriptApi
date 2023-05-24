@@ -5,7 +5,7 @@ class Conversation{
     #receiver 
     //
     constructor(initiator, receiver){
-        this.#receiver = this.toContact(receiver)
+        this.#receiver = receiver
         this.#initiator = initiator
         this.info()
     }
@@ -20,10 +20,7 @@ class Conversation{
         let content = JSON.stringify(message)
         console.log(content);
     }
-    // devuelve el objeto user del contacto
-    toContact(receiver){
-        return Factory.getContact(receiver)
-    }
+    
 }
 
 module.exports = Conversation;
