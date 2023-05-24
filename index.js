@@ -15,12 +15,4 @@ try {
     console.log(e.message)
 }
 
-try{
-    const resultado = app.crearCategoria(
-        'Celulares'
-    )
 
-    console.log(resultado)
-} catch(e){
-    console.log(e.message)
-}
