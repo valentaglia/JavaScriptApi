@@ -16,20 +16,18 @@
 }
 */
 
+const ContactRepository = require("./src/repositories/ContactsRepository");
+const UserRepository = require('./src/repositories/UserRepository')
+const Conversation = require('./src/models/Conversation')
 
+const users = new UserRepository()
+const contacts = new ContactRepository()
 try {
-
-    app.createConversation("prueba@gmail.com")
-    console.log(result)
+    const user = users.byId(1684290851998)
+    const receiver = contacts.findByEmail("prueba@gmail.com")
+    
+    const conversation = new Conversation(user, receiver)
 } catch (e) {
     console.log(e.message)
 }
 
-//Metodo eliminado de App.js
-/*
-createConversation(email){
-    const receiver = this.user.findContact(email)
-    const conversation = new Conversation(this.user, receiver);
-    conversation.sendMessage()
-}
-*/
