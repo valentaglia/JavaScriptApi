@@ -44,14 +44,6 @@ class Application {
     signOut() {
         this.user = null
     }
-
-    createStore(obj){
-        createStoreValidator(obj.getName(),obj.getWebsite())
-        const store= StoreFactory.make(obj)       
-        const repo= new StoreRepository
-        repo.create(store)
-        return store
-    }
 }
 
 module.exports = Application
