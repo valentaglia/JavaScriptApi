@@ -1,11 +1,13 @@
-const fs = require("fs");
+
 const Repository = require("./Repository");
+const Factory = require('../factories/UserFactory')
 class ContactRepository extends Repository{
-  file = "./contacts.json";
+  file = "./src/contacts.json";
 
   findByEmail(email) {
     let contacts = this.read();
-    return contacts.find((contact) => contact.email === email);
+    let contact = contacts.find((contact) => contact.email === email);
+    return Factory.make(contact);
   }
 
 }
