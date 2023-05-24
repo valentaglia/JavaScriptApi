@@ -2,7 +2,7 @@ const {registerValidator} = require('./validators/registerValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-const Conversation = require("./models/Conversation");
+
 class Application {
     constructor() {
         this.name = 'Zoom'
