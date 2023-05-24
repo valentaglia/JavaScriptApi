@@ -8,16 +8,15 @@ const message = new Message()
 const mensajeEncontrado = message.find(1)
 
 //Reacciono al mensaje con like
-mensajeEncontrado.Like();
+mensajeEncontrado.like();
 console.log(mensajeEncontrado.getLikes())
 
 //O reacciono con dislike
-mensajeEncontrado.Dislike();
+mensajeEncontrado.dislike();
 console.log(mensajeEncontrado.getDislikes())
 
 //O anulo el divisible invocando de nuevo al mismo método
-mensajeEncontrado.Dislike();
+mensajeEncontrado.dislike();
 console.log(mensajeEncontrado.getDislikes())
-
 
 
