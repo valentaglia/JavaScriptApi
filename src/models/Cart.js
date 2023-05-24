@@ -1,4 +1,5 @@
 class Cart {
+    #id
     #user_id
     #items
     #subtotal
@@ -24,6 +25,12 @@ class Cart {
     }
     getSubtotal() {
         return this.#subtotal
+    }
+    setId(id){
+        this.#id=id
+    }
+    getId(){
+        return this.#id
     }
 }
 module.exports = Cart
