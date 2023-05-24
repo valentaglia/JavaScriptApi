@@ -2,11 +2,6 @@ const {registerValidator} = require('./validators/registerValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-const {createProductValidator} = require('./validators/createProductValidator')
-const ProductFactory = require('./factories/ProductFactory')
-const ProductRepository = require('./repositories/ProductRepository')
-
-
 
 class Application {
     constructor() {
@@ -35,29 +30,6 @@ class Application {
         return user
     }
 
-    createProduct(name, price, currency, stock){
-        createProductValidator(name, price, currency, stock)
-        const product = ProductFactory.create({
-            name,
-            price,
-            currency,
-            stock
-        })
-        const repo = new ProductRepository
-        repo.create(product)
-        return product
-    }
-
-    /*  TODO: Esto asi no anda
-    createProduct(obj){
-        createProductValidator(obj.getName(), obj.getPrice(), obj.getCurrency(), obj.getStock())
-        const product = ProductFactory.create(obj)
-        const repo = new ProductRepository
-        repo.create(product)
-        return product
-    }
-    */
-
     login(email, password) {
         // validaciones
         // buscar en la base de datos por el email
@@ -68,9 +40,6 @@ class Application {
     signOut() {
         this.user = null
     }
-
-
-
 }
 
 module.exports = Application
