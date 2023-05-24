@@ -1,8 +1,13 @@
 class Product{
+    #id
     #name
     #price
     #currency
     #stock
+
+    setId(id) {
+        this.#id = id
+    }
 
     setName(name){
         this.#name = name;
@@ -18,6 +23,10 @@ class Product{
 
     setStock(stock){
         this.#stock = stock;
+    }
+
+    getId() {
+        return this.#id
     }
 
     getName(){
