@@ -1,15 +1,1 @@
-[
-    {
-        "user_id": 1,
-        "items": [
-            {
-                "name": "Iphone XXI",
-                "price": 1,
-                "currency": "USD",
-                "stock": 10
-            }
-        ],
-        "subtotal": 1,
-        "id": 1684408943757
-    }
-]
+[{"user_id":1684280149992,"items":[{"name":"Iphone XXI","price":1500,"currency":"USD","stock":10}],"subtotal":1500,"id":1684889011311}]
