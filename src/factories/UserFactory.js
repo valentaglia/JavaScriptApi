@@ -4,7 +4,7 @@ class UserFactory {
     static make(obj) {
         let user = new User
         
-        user.setId(Date.now())
+        user.setId(obj.id)
         user.setEmail(obj.email)
         user.setPassword(obj.password)
 
