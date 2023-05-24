@@ -1,8 +1,13 @@
+const UserRepository = require('../repositories/UserRepository');
+
+// Busco el mensaje que voy a reaccionar
+
+
 class Message {
     #id
     #contenido
-    #likes = false;
-    #dislikes = false;
+    #listaLikes = [{}]
+    #listaDislike = [{}]
 
 
     setId(id) {
@@ -13,41 +18,57 @@ class Message {
         return this.#id
     }
 
-    getLikes() {
-        return this.#likes;
-    }
-
-    getDislikes() {
-        return this.#dislikes;
+    setContenido(contenido){
+        this.contenido = contenido;
     }
 
     getContenido() {
         return this.#contenido;
     }
 
-    Like() {
-        this.#likes = true;
-        this.#dislikes = false;
-      }
-    
-      Dislike() {
-        if (!this.#dislikes) {
-          this.#likes = false;
-          this.#dislikes = true;
-        } else {
-          this.#dislikes = false;
-        }
-      }
+    getLikes(){
+        return this.#listaLikes;
+    }
 
+    getDislikes(){
+        return this.#listaDislike;
+    }
+
+   like() {
+  const reaccionEncontrada = this.#listaLikes.find((reaccion) => reaccion.idUsuario === 1);
+  
+  if (reaccionEncontrada) {
+    if (reaccionEncontrada.like === 1) {
+      reaccionEncontrada.like = 0;
+    } else {
+      reaccionEncontrada.like = 1;
+    }
+  } else {
+    const nuevaReaccion = { idUsuario: 1, like: 1 };
+    this.#listaLikes.push(nuevaReaccion);
+  }
+}
+
+dislike() {
+  const reaccionEncontrada = this.#listaDislike.find((reaccion) => reaccion.idUsuario === 1);
+  
+  if (reaccionEncontrada) {
+    if (reaccionEncontrada.dislike === 1) {
+      reaccionEncontrada.dislike = 0;
+    } else {
+      reaccionEncontrada.dislike = 1;
+    }
+  } else {
+    const nuevaReaccion = { idUsuario: 1, dislike: 1 };
+    this.#listaDislike.push(nuevaReaccion);
+  }
+}
+
+      
     find(id) {
-        const message = new Message();
-        message.#id = 1;
-        message.#contenido = "Hola"
-        
-        if (message.getId() === id) {
-            return message;
-        }
-        return null;
+        const userRepository = new UserRepository();
+        const mensajeEncontrado = userRepository.findMessage(id);
+        return mensajeEncontrado; 
     }
 }
 
