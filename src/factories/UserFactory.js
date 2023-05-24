@@ -7,7 +7,6 @@ class UserFactory {
         user.setId(Date.now())
         user.setEmail(obj.email)
         user.setPassword(obj.password)
-        user.setContacts()
 
         return user
     }
