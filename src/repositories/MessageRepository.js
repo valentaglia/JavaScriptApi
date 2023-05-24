@@ -10,7 +10,7 @@ class MessageRepository extends Repository {
 
   addMessage(content) {
     const messageFactory = new MessageFactory();
-    const message = messageFactory.createMessage(content);
+    const message = messageFactory.make(content);
      message.id = this.nextId++;
     this.messages.push(message);
   }
