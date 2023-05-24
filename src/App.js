@@ -1,15 +1,7 @@
 const {registerValidator} = require('./validators/registerValidator')
-const {createStoreValidator} = require('./validators/createStoreValidator')
-const {createCartValidator} = require('./validators/createCartValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-const StoreFactory = require('./factories/StoreFactory')
-const Store = require('./models/Store')
-const StoreRepository = require('./repositories/StoreRepository')
-const CartFactory = require('./factories/CartFactory')
-const Repository = require('./repositories/Repository')
-const CartRepository = require('./repositories/CartRepository')
 
 class Application {
     constructor() {
@@ -47,21 +39,6 @@ class Application {
 
     signOut() {
         this.user = null
-    }
-
-    createStore(obj){
-        createStoreValidator(obj.getName(),obj.getWebsite())
-        const store= StoreFactory.make(obj)       
-        const repo= new StoreRepository
-        repo.create(store)
-        return store
-    }
-    createCart(obj){
-        createCartValidator(obj)
-        const cart= CartFactory.make(obj)
-        const repo= new CartRepository
-        repo.create(cart)
-        return cart
     }
 }
 
