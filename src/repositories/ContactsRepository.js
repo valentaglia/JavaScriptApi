@@ -2,7 +2,7 @@
 const Repository = require("./Repository");
 const Factory = require('../factories/UserFactory')
 class ContactRepository extends Repository{
-  file = "./src/contacts.json";
+  file = "./contacts.json";
 
   findByEmail(email) {
     let contacts = this.read();
