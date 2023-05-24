@@ -1,7 +1,7 @@
 const Message  = require('../models/Message');
 
 class MessageFactory {
-  createMessage(content) {
+  make(content) {
     const message = new Message(content);
     return message;
   }
