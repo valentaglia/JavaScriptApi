@@ -1,0 +1,6 @@
+{
+    "De": "<%= de %>",
+    "Para": "<%= para %>",
+    "Asunto": "<%= asunto %>",
+    "Mensaje": "<%= cuerpo %>"
+}
