@@ -1,4 +1,3 @@
-const Cart = require('../models/Cart')
 
 class TaxCalculatorRepository{
 
@@ -10,3 +9,5 @@ class TaxCalculatorRepository{
 
     
 }
+
+module.exports = TaxCalculatorRepository
