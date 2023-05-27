@@ -17,15 +17,19 @@ const fileContent = MetaDataFunc.loadFileEnVariable(filePath);
 const datosImagen = ExifParser.create(fileContent);
 const datosObtenidos = datosImagen.parse();
 const mimeImagen = mime.lookup(filePath);
+const stringCortada = MetaDataFunc.extaerTextoAntesDeBarra(mimeImagen);
+//const stringCortada = "prueba"
 //console.log(datosObtenidos);
 // `${}` se usa para interpolar variables con texto, tambien se puede usar para realizar operaciones
 //
+
+
 const meta = {
-  type: datosObtenidos.thumbnailType,
+  type: stringCortada,
   mime: mimeImagen,
   width: `${datosObtenidos.imageSize.width}px`,
   height: `${datosObtenidos.imageSize.height}px`
 };
 
 console.log(meta);
-console.log(mimeImagen);
+//console.log(mimeImagen);
