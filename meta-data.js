@@ -1,12 +1,20 @@
-const fs = require('fs');
+//Consulta para el profesor, crear una no la carpeta "Functions" bajo el directorio src??
+
+//const fs = require('fs'); Intentando usar una funciona para cargar el archivo
 const ExifParser = require('exif-parser');
 const mime = require('mime-types');
+const MetaDataFunc = require('./src/meta-data-func');
 
-const nombreRutaString = './imagen-metadata.jpg';
+//const nombreRutaString = './imagen-metadata.jpg'; // se tiene que cargar desde la funciona MetaDataFunc
 
-const imagen = fs.readFileSync(nombreRutaString);
-const filePath = nombreRutaString;
-const datosImagen = ExifParser.create(imagen);
+//const imagen = fs.readFileSync(nombreRutaString);
+// Llamada a la función para cargar un archivo en una variable
+const filePath = './imagen-metadata.jpg';
+const fileContent = MetaDataFunc.loadFileEnVariable(filePath);
+//console.log(fileContent); // Imprime el contenido del archivo por consola
+
+//const filePath = nombreRutaString; //Lo reemplazo por el nuevo codigo
+const datosImagen = ExifParser.create(fileContent);
 const datosObtenidos = datosImagen.parse();
 const mimeImagen = mime.lookup(filePath);
 //console.log(datosObtenidos);
