@@ -28,11 +28,9 @@ class Meeting{
         }
 
         removeGuest(guest) {
-            const index = this.guests.indexOf(guest);
-            if (index !== -1) {
-              this.guests.splice(index, 1);
-            }
-          }
+          this.guests = this.guests.filter((item) => item !== guest);
+        }
+        
       
 }
 module.exports = Meeting
