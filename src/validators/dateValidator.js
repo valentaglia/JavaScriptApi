@@ -1,9 +1,13 @@
+const dayjs = require('dayjs')
+
 module.exports = {
     dateValidator: function(date){
-        let fechaActual =  new Date().toLocaleDateString
+        let fechaActual =  new Date().toLocaleDateString()
 
-    if(date <= fechaActual){
-        throw new Error(`La fecha ${date} debe ser mayor a la actual`)
+        let fechaIngresada = dayjs(date).format('DD/MM/YYYY')
+
+    if(fechaIngresada >= fechaActual){
+        throw new Error(`La fecha ${fechaIngresada} debe ser mayor a la actual`)
     }
 
     }
