@@ -1,121 +1,59 @@
-[
-    {
-        "events": 0,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        "events": 1,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        "events": 2,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        "events": 3,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        "events": 4,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        "events": 5,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
-    },
-    {
-        "events": 6,
-        "schedule": {
-            "2023-06-15": [
-                {
-                    "start_time": "17:30",
-                    "duration": 30,
-                    "end_time": "18:00",
-                    "guests": [
-                        1,
-                        5,
-                        78
-                    ]
-                }
-            ]
-        }
+{
+    "events": 1,
+    "schedule": {
+        "2023-06-15": [
+            {
+                "start_time": "17:30",
+                "duration": 30,
+                "end_time": "18:00",
+                "guests": [
+                    1,
+                    5,
+                    78
+                ]
+            }
+        ],
+        "2023-06-16": [
+            {
+                "start_time": "17:30",
+                "duration": 30,
+                "end_time": "18:00",
+                "guests": [
+                    1,
+                    5,
+                    78
+                ]
+            },
+            {
+                "start_time": "18:30",
+                "duration": 30,
+                "end_time": "19:00",
+                "guests": [
+                    1,
+                    79
+                ]
+            }
+        ],
+        "2023-07-16": [
+            {
+                "start_time": "17:30",
+                "duration": 30,
+                "end_time": "18:00",
+                "guests": [
+                    1,
+                    5,
+                    78
+                ]
+            },
+            {
+                "start_time": "18:30",
+                "duration": 30,
+                "end_time": "19:00",
+                "guests": [
+                    1,
+                    79
+                ]
+            }
+        ]
     }
-]
+}
