@@ -2,7 +2,6 @@ const {registerValidator} = require('./validators/registerValidator')
 const {loginValidator} = require('./validators/loginValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
-const EventsRepository = require('./repositories/EventRepository')
 const bcrypt = require('bcrypt')
 
 class Application {
@@ -55,11 +54,7 @@ class Application {
         this.user = null
     }
 
-    getCalendar(){
-        const repo = new EventsRepository
-        const events = repo.getAllEvents()
-        return events;
-    }
+    
 }
 
 module.exports = Application
