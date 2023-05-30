@@ -11,7 +11,7 @@ try {
         10
     )
 
-    console.log(result.getId())
+    console.log(result.getCurrency())//getId() no anda pero con el de users tampoco
 } catch (e) {
     console.log(e.message)
 }
