@@ -1,7 +1,6 @@
 const Event = require('../models/Event')
-const Factory = require('../factories/UserFactory')
 const Repository = require('./Repository')
-const EventFactory = require('../factories/UserFactory')
+const Factory = require('../factories/EventFactory')
 
 class EventsRepository extends Repository {
     file = './events.json'
@@ -11,17 +10,17 @@ class EventsRepository extends Repository {
             throw new Error('Se esperaba id numerico')
         }
 
-        let user = this.findById(id)
+        let event = this.findById(id)
 
-        if (user === undefined) {
-            throw new Error('El usuario no se encontro')
+        if (event === undefined) {
+            throw new Error('El evento no se encontro')
         }
 
-        return Factory.make(user)
+        return Factory.make(event)
     }
 
     getAllEvents(){
-        let events = this.read()
+        let events = 
 
         return events
     }
@@ -29,13 +28,16 @@ class EventsRepository extends Repository {
     create(event) {
         if (event instanceof Event) {
             this.save({
-                schedule : event.getSchedule()
+                dateEvent: event.getDateEvent(),
+                startEvent: event.getStartEvent(),
+                endEvent: event.getEndEvent()
+
             })
 
             return event;
         }
 
-        throw new Error('Se requiere una instancia de User')
+        throw new Error('Se requiere una instancia de evento')
     }
 }
 
