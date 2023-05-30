@@ -13,6 +13,13 @@ class Repository {
         return content.find((obj) => obj.id == id)
     }
 
+    readEvents()
+    {
+        let content = this.read()
+        return content.find
+        
+    }
+
     save(data) {
         let content = this.read()
 
