@@ -26,7 +26,7 @@ let data = {
     cuerpo : "Hola, ¿Como estas?"
 }
 
-let archivo = './Purchase-Email.json'
+let archivo = './Purchase-Email.txt'
 
 let mensaje = appMailer.template(archivo, data)
 
