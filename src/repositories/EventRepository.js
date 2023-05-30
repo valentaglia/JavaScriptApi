@@ -20,8 +20,7 @@ class EventsRepository extends Repository {
     }
 
     getAllEvents(){
-        let events = 
-
+        let events = this.read()
         return events
     }
 
