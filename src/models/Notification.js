@@ -1,3 +1,5 @@
+const NotificationRepository = require('../repositories/NotificationRepository')
+
 class Notification {
 
     #key
@@ -6,11 +8,7 @@ class Notification {
     #readDate // = null ???
 
     static send(notification) {
-        // Aquí puedes realizar las acciones necesarias para almacenar la notificación,
-        // como guardarla en una base de datos o enviarla a través de una API.
-    
-        // Por ejemplo, para mostrarla por consola:
-        console.log(notification);
+        NotificationRepository.save(notification);
     }
 
     setKey(key) {
