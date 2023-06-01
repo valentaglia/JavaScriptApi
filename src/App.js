@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt')
 
 const {dateValidator} = require('./validators/dateValidator')
 const MeetFactory = require('./factories/MeetFactory')
+const MeetRepository = require('./repositories/MeetRepository')
+const Meet = require ('./models/Meet')
 
 class Application {
     constructor() {
@@ -12,7 +14,7 @@ class Application {
         this.version = '1.0.0'
         this.user = null
     }
-
+/*
     registrar(email, password) {
         registerValidator(email, password)
         
@@ -32,7 +34,7 @@ class Application {
         // devolver la instancia del usuario guardado
         return user
     }
-
+*/
     login(email, password) {
         // validaciones
         // buscar en la base de datos por el email
@@ -44,18 +46,23 @@ class Application {
         this.user = null
     }
 
-    createMeeting(data){
-        dateValidator(data.getDate)
+    createMeeting(date, time, duration){
+        dateValidator(date)
+        
+
 
         // construyo el objeto meet = Factory
         const meet = MeetFactory.make({
             date, 
             time,
             duration,
-        })
+        }
+            
+          
+        )
 
         // guardarlo en la base de datos = Repository
-        const repo = new MeetRepository
+        var repo = new MeetRepository
         repo.create(meet)
 
         // devolver la instancia del usuario guardado
