@@ -2,15 +2,15 @@ const Metadata = require('../models/Metadata')
 
 class MetadataFactory {
     static make(obj) {
-        let Metadata = new Metadata
+        let metadata = new Metadata
         
-        Metadata.setId(obj.id)
-        Metadata.settype(obj.type)
-        Metadata.setmime(obj.mime)
-        Metadata.setwidth(obj.width)
-        Metadata.setheight(obj.height)
+        metadata.setId(obj.id)
+        metadata.settype(obj.type)
+        metadata.setmime(obj.mime)
+        metadata.setwidth(obj.width)
+        metadata.setheight(obj.height)
 
-        return Metadata
+        return metadata
     }
 }
 
