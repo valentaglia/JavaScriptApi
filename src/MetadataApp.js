@@ -5,7 +5,7 @@ const MetadataRepository = require('./repositories/MetadataRepository')
 class MetadataApp {
     constructor() {
 
-        this.Metadata = null
+        this.metadata = null
     }
 
     saveMetadata(type, mime,width,height) {
