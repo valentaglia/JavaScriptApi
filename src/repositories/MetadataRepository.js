@@ -10,22 +10,22 @@ class MetadataRepository extends Repository {
             throw new Error('Se esperaba id numerico')
         }
 
-        let Metadata = this.findById(id)
+        let metadata = this.findById(id)
 
-        if (Metadata === undefined) {
+        if (metadata === undefined) {
             throw new Error('La metadata no se encontro')
         }
 
-        return Factory.make(Metadata)
+        return Factory.make(metadata)
     }
 
-    create(Metadata) {
-        if (Metadata instanceof Metadata) {
+    create(metadata) {
+        if (metadata instanceof Metadata) {
             this.save({
-                type : Metadata.gettype(),
-                mime : Metadata.getmime(),
-                width : Metadata.getwidth(),
-                height : Metadata.getheight(),
+                type : metadata.gettype(),
+                mime : metadata.getmime(),
+                width : metadata.getwidth(),
+                height : metadata.getheight(),
             })
 
             return;
