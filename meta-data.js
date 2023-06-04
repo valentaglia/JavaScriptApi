@@ -4,6 +4,7 @@ const mime = require('mime-types');
 const MetaDataFunc = require('./src/meta-data-func');
 const filePath = './imagen-metadata.jpg';
 const fileContent = MetaDataFunc.loadFileEnVariable(filePath);
+const MetadataApp = require('./src/MetadataApp');
 
 const datosImagen = ExifParser.create(fileContent); //Se usa la libreria ExifParser para extrar el temaño de la imagen
 const datosObtenidos = datosImagen.parse();
@@ -20,3 +21,21 @@ const meta = {
 };
 
 console.log(meta);
+
+
+
+// Instancia de la clase MetadataApp
+const metadataapp = new MetadataApp
+
+try {
+    const result = metadataapp.saveMetadata(
+      stringCortada,
+      mimeImagen,
+      `${datosObtenidos.imageSize.width}px`,
+     `${datosObtenidos.imageSize.height}px`
+    )
+
+    console.log(result)
+} catch (e) {
+    console.log(e.message)
+}
