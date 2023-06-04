@@ -23,7 +23,7 @@ class MetadataApp {
         const repo = new MetadataRepository
         repo.create(Metadata)
 
-        // devolver la instancia del usuario guardado
+        // devolver la instancia Metadata guardada
         return Metadata
     }
 
