@@ -12,7 +12,7 @@ class MetadataApp {
                 
                
         // construyo el objeto Metadata = Factory
-        const Metadata = MetadataFactory.make({
+        const metadata = MetadataFactory.make({
             type, 
             mime,
             width, 
@@ -21,10 +21,10 @@ class MetadataApp {
         
         // guardarlo en la base de datos = Repository
         const repo = new MetadataRepository
-        repo.create(Metadata)
+        repo.create(metadata)
 
         // devolver la instancia Metadata guardada
-        return Metadata
+        return metadata
     }
 
 }
