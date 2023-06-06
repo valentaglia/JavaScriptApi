@@ -2,6 +2,7 @@ const User = require('../models/User')
 const Factory = require('../factories/UserFactory')
 const Repository = require('./Repository')
 
+
 class UserRepository extends Repository {
     file = './users.json'
 
@@ -30,6 +31,17 @@ class UserRepository extends Repository {
         }
 
         throw new Error('Se requiere una instancia de User')
+    }
+
+    findMessage(id) {
+        const Message = require('../models/Message');
+        const message = new Message();
+        message.setId(1)
+        message.setContenido("Hola")
+        
+        if (message.getId() === id) {
+            return message;
+        }       
     }
 }
 
