@@ -3,6 +3,9 @@ const {loginValidator} = require('./validators/loginValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
+const extraerMenciones = require('./utils/extraerMenciones');
+const User = require('./models/User');
+const Chat = require('./models/Chat');
 
 class Application {
     constructor() {
@@ -10,6 +13,7 @@ class Application {
         this.version = '1.0.0'
         this.user = null
         this.contact = null
+        this.chat = new Chat();
     }
 
     registrar(email, password) {
@@ -33,29 +37,39 @@ class Application {
     }
 
     login(email, password) {
-        // validaciones
-        // buscar en la base de datos por el email
-        // el repositorio de usuarios me devuelve un objeto User
-        // setear el User como this.user
-
         loginValidator(email, password)
-        const repo = new UserRepository
-        const user = repo.searchUser(email)
-        
-        if(!bcrypt.compareSync(password,user.getPassword()))
-        {
+
+        // buscar en la base de datos
+        const repo = new UserRepository()
+        const user = repo.findByEmail(email, password)
+
+        if (!user) {
+            throw new Error('No se encontró ningún usuario con ese email')
+        }
+
+        // comparar contraseñas
+        const passwordMatch = bcrypt.compareSync(password, user.getPassword())
+
+        if (!passwordMatch) {
+            throw new Error('La contraseña es incorrecta')
+        }
+
+        if (!bcrypt.compareSync(password, user.getPassword())) {
             throw new Error("La contraseña es incorrecta")
         }
+
         this.user = user
-        // setear el User como this.user
-        return this.user
+
+        return user
     }
 
     signOut() {
         this.user = null
     }
 
-    
+    setUser(user) {
+        this.user = user;
+    }
 }
 
-module.exports = Application
+module.exports = Application;

@@ -6,14 +6,8 @@ module.exports = {
             throw new Error('El email es invalido')
         }
 
-        
-
         if (password === undefined) {
             throw new Error(`El password es invalido`)
         }
-
-        
-
-       
     }
 }

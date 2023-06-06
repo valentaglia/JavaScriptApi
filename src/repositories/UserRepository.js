@@ -19,12 +19,14 @@ class UserRepository extends Repository {
         return Factory.make(user)
     }
 
-    byEmail(email) {
+    findByEmail(email) {
         if (email != "") {
             throw new Error('Se esperaba un email')
         }
 
-        let user = this.findById(id)
+        let content = this.read();
+
+        let user = content.find((obj => obj.email == email))
 
         if (user === undefined) {
             throw new Error('El usuario no se encontro')
@@ -37,8 +39,8 @@ class UserRepository extends Repository {
         if (user instanceof User) {
             this.save({
                 id: user.getId(),
-                email : user.getEmail(),
-                password : user.getPassword(),
+                email: user.getEmail(),
+                password: user.getPassword(),
             })
 
             return;
@@ -59,4 +61,4 @@ class UserRepository extends Repository {
     }
 }
 
-module.exports = UserRepository
+module.exports = UserRepository;
