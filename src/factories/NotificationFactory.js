@@ -4,6 +4,7 @@ class NotificationFactory {
     static make(obj) {
         let notif = new Notification
         
+        notif.setId(obj.id)
         notif.setKey(obj.key)
         notif.setText(obj.text)
         notif.setSendDate(obj.sendDate)
