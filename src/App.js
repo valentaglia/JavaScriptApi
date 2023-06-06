@@ -3,19 +3,14 @@ const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
 
-const {dateValidator} = require('./validators/dateValidator')
-const MeetFactory = require('./factories/MeetFactory')
-const MeetRepository = require('./repositories/MeetRepository')
-const Meet = require ('./models/Meet')
-
 class Application {
     constructor() {
         this.name = 'Zoom'
         this.version = '1.0.0'
         this.user = null
-        this.contact = null 
+        this.contact = null
     }
-/*
+
     registrar(email, password) {
         registerValidator(email, password)
 
@@ -35,7 +30,7 @@ class Application {
         // devolver la instancia del usuario guardado
         return user
     }
-*/
+
     login(email, password) {
         // validaciones
         // buscar en la base de datos por el email
@@ -46,31 +41,6 @@ class Application {
     signOut() {
         this.user = null
     }
-
-    createMeeting(date, time, duration){
-        dateValidator(date)
-        
-
-
-        // construyo el objeto meet = Factory
-        const meet = MeetFactory.make({
-            date, 
-            time,
-            duration,
-        }
-            
-          
-        )
-
-        // guardarlo en la base de datos = Repository
-        var repo = new MeetRepository
-        repo.create(meet)
-
-        // devolver la instancia del usuario guardado
-        return meet
-
-    }
-
 }
 
 module.exports = Application
