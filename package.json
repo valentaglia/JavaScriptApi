@@ -3,6 +3,12 @@
     "bcrypt": "^5.1.0",
     "dotenv": "^16.1.4",
     "mocha": "^10.2.0",
-    "nodemailer": "^6.9.2"
+    "nodemailer": "^6.9.2",
+    "lodash": "^4.17.21",
+    "exif-parser": "^0.1.12",
+    "mime-types": "^2.1.35",
+    "mocha": "^10.2.0",
+    "fs": "^0.0.1-security",
+    "sharp": "^0.32.1"
   }
 }

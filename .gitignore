@@ -1,4 +1,6 @@
 /logs
 /node_modules
+/src/assets/img
+/src/assets/resized-images
 *.txt
 .env
