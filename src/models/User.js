@@ -30,6 +30,10 @@ class User {
     isSamePassword(pwd) {
         return pwd === this.#password
     }
+
+    find(email){
+        return email === this.#email
+    }
 }
 
 module.exports = User
