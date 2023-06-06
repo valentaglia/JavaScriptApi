@@ -8,6 +8,7 @@ class Application {
         this.name = 'Zoom'
         this.version = '1.0.0'
         this.user = null
+        this.contact = null 
     }
 
     registrar(email, password) {
@@ -25,7 +26,7 @@ class Application {
         // guardarlo en la base de datos = Repository
         const repo = new UserRepository
         repo.create(user)
-
+        this.user = user;
         // devolver la instancia del usuario guardado
         return user
     }
