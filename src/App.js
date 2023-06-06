@@ -1,11 +1,7 @@
 const {registerValidator} = require('./validators/registerValidator')
-const {createStoreValidator} = require('./validators/createStoreValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-const StoreFactory = require('./factories/StoreFactory')
-const Store = require('./models/Store')
-const StoreRepository = require('./repositories/StoreRepository')
 
 class Application {
     constructor() {
