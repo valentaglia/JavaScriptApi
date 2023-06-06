@@ -1,4 +1,6 @@
+const { error } = require('console');
 const fs = require('fs')
+const sharp = require('sharp')
 
 class Repository {
     file;
@@ -30,7 +32,7 @@ class Repository {
         fs.writeFileSync(this.file, content)
 
         return true;
-    }
+    }   
 
 }
 
