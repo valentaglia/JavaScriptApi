@@ -2,6 +2,11 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "dayjs": "^1.11.7",
-    "mocha": "^10.2.0"
+    "lodash": "^4.17.21",
+    "exif-parser": "^0.1.12",
+    "mime-types": "^2.1.35",
+    "mocha": "^10.2.0",
+    "fs": "^0.0.1-security",
+    "sharp": "^0.32.1"
   }
 }

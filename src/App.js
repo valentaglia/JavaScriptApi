@@ -1,75 +1,75 @@
 const {registerValidator} = require('./validators/registerValidator')
+const {loginValidator} = require('./validators/loginValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-
-const {dateValidator} = require('./validators/dateValidator')
-const MeetFactory = require('./factories/MeetFactory')
-const MeetRepository = require('./repositories/MeetRepository')
-const Meet = require ('./models/Meet')
+const extraerMenciones = require('./utils/extraerMenciones');
+const User = require('./models/User');
+const Chat = require('./models/Chat');
 
 class Application {
     constructor() {
         this.name = 'Zoom'
         this.version = '1.0.0'
         this.user = null
+        this.contact = null
+        this.chat = new Chat();
     }
-/*
+
     registrar(email, password) {
         registerValidator(email, password)
-        
+
         // encriptarlo sha-512
         password = bcrypt.hashSync(password, 10)
-        
+
         // construyo el objeto user = Factory
         const user = UserFactory.make({
-            email, 
+            email,
             password,
         })
-        
+
         // guardarlo en la base de datos = Repository
         const repo = new UserRepository
         repo.create(user)
-
+        this.user = user;
         // devolver la instancia del usuario guardado
         return user
     }
-*/
+
     login(email, password) {
-        // validaciones
-        // buscar en la base de datos por el email
-        // el repositorio de usuarios me devuelve un objeto User
-        // setear el User como this.user
+        loginValidator(email, password)
+
+        // buscar en la base de datos
+        const repo = new UserRepository()
+        const user = repo.findByEmail(email, password)
+
+        if (!user) {
+            throw new Error('No se encontró ningún usuario con ese email')
+        }
+
+        // comparar contraseñas
+        const passwordMatch = bcrypt.compareSync(password, user.getPassword())
+
+        if (!passwordMatch) {
+            throw new Error('La contraseña es incorrecta')
+        }
+
+        if (!bcrypt.compareSync(password, user.getPassword())) {
+            throw new Error("La contraseña es incorrecta")
+        }
+
+        this.user = user
+
+        return user
     }
 
     signOut() {
         this.user = null
     }
 
-    createMeeting(date, time, duration){
-        dateValidator(date)
-        
-
-
-        // construyo el objeto meet = Factory
-        const meet = MeetFactory.make({
-            date, 
-            time,
-            duration,
-        }
-            
-          
-        )
-
-        // guardarlo en la base de datos = Repository
-        var repo = new MeetRepository
-        repo.create(meet)
-
-        // devolver la instancia del usuario guardado
-        return meet
-
+    setUser(user) {
+        this.user = user;
     }
-
 }
 
-module.exports = Application
+module.exports = Application;
