@@ -2,7 +2,6 @@ const {registerValidator} = require('./validators/registerValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-const mensaje = require('./models/Message')
 
 class Application {
     constructor() {
@@ -13,16 +12,16 @@ class Application {
 
     registrar(email, password) {
         registerValidator(email, password)
-        
+
         // encriptarlo sha-512
         password = bcrypt.hashSync(password, 10)
-        
+
         // construyo el objeto user = Factory
         const user = UserFactory.make({
-            email, 
+            email,
             password,
         })
-        
+
         // guardarlo en la base de datos = Repository
         const repo = new UserRepository
         repo.create(user)
@@ -40,9 +39,7 @@ class Application {
 
     signOut() {
         this.user = null
-    }  
+    }
 }
-
-
 
 module.exports = Application
