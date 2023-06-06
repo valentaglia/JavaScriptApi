@@ -1,4 +1,5 @@
-const { registerValidator } = require('./validators/registerValidator')
+const {registerValidator} = require('./validators/registerValidator')
+const {loginValidator} = require('./validators/loginValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
@@ -29,16 +30,13 @@ class Application {
         // guardarlo en la base de datos = Repository
         const repo = new UserRepository
         repo.create(user)
-
+        this.user = user;
         // devolver la instancia del usuario guardado
         return user
     }
 
     login(email, password) {
-        // validaciones
-        if (!email || !password) {
-            throw new Error('El email y la contraseña son obligatorios')
-        }
+        loginValidator(email, password)
 
         // buscar en la base de datos
         const repo = new UserRepository()
@@ -55,15 +53,18 @@ class Application {
             throw new Error('La contraseña es incorrecta')
         }
 
-        // setear el User como this.user
+        if (!bcrypt.compareSync(password, user.getPassword())) {
+            throw new Error("La contraseña es incorrecta")
+        }
+
         this.user = user
         this.chat = new Chat(this.user);
 
 
 
+
         return user
     }
-
 
     signOut() {
         this.user = null
@@ -74,7 +75,10 @@ class Application {
     }
 
 
-}
 
+    setUser(user) {
+        this.user = user;
+    }
+}
 
 module.exports = Application;

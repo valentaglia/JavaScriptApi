@@ -17,16 +17,5 @@ module.exports = {
         if (password.length > passwordMaxLength) {
             throw new Error(`El password debe tener como maximo ${passwordMaxLength} caracteres`)
         }
-
-        // validaciones = Validator
-            // email
-                // X tenga un formato valido (regex)
-                // que sea unico en la db
-            // password
-                // minimo: 8 caracteres
-                // maximo: 16 caracteres
-                // 1 simbolo
-                // 1 mayuscula
-                // 1 numero
     }
 }
