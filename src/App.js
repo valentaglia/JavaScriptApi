@@ -11,7 +11,7 @@ class Application {
         this.name = 'Zoom'
         this.version = '1.0.0'
         this.user = null;
-        this.chat = new Chat();
+        this.chat = null;
     }
 
     registrar(email, password) {
@@ -57,9 +57,10 @@ class Application {
 
         // setear el User como this.user
         this.user = user
+        this.chat = new Chat(this.user);
 
-        
- 
+
+
         return user
     }
 
@@ -67,9 +68,7 @@ class Application {
     signOut() {
         this.user = null
     }
-    setUser(user) {
-        this.user = user;
-    }
+
     sendMessage(message) {
         this.chat.sendMessage(message);
     }

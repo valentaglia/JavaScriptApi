@@ -1,4 +1,4 @@
-const extraerMenciones = require('./utils/extraerMenciones');
+const extraerMenciones = require('../utils/extraerMenciones');
 
 class User {
     constructor() {
@@ -36,7 +36,6 @@ class User {
     }
     enviarMensaje(mensaje) {
         let menciones = extraerMenciones(mensaje);
-
         let mensajeConMenciones = {
             user_id: this.getId(),
             message: mensaje,
