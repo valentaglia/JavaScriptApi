@@ -13,6 +13,11 @@ class Repository {
         return content.find((obj) => obj.id == id)
     }
 
+    findByEmail(email) {
+        let content = this.read()
+        return content.find((obj) => obj.email == email)
+    }
+
     save(data) {
         let content = this.read()
 

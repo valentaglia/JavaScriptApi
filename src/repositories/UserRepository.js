@@ -20,6 +20,20 @@ class UserRepository extends Repository {
         return Factory.make(user)
     }
 
+    byEmail(email) {
+        if (email != "") {
+            throw new Error('Se esperaba un email')
+        }
+
+        let user = this.findById(id)
+
+        if (user === undefined) {
+            throw new Error('El usuario no se encontro')
+        }
+
+        return Factory.make(user)
+    }
+
     create(user) {
         if (user instanceof User) {
             this.save({
