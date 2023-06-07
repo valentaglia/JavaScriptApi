@@ -1,3 +1,6 @@
+const url = require("url");
+const Factory = require('../factories/MeetingFactory')
+
 class Meeting{
     id
     startTime
@@ -5,20 +8,19 @@ class Meeting{
     endTime
     guests = []
         
-    constructor(id, startTime, endTime, duration) {
-          this.id = id;
+    constructor(startTime, endTime, duration) {
           this.startTime = startTime;
           this.endTime = endTime;
           this.duration = duration;
           this.guests = [];
+          this.generateLink();
+          this.generateId();
         }
       
         getId() {
           return this.id;
         }
-      
-       
-      
+
         getGuests() {
           return this.guests;
         }
@@ -31,6 +33,26 @@ class Meeting{
           this.guests = this.guests.filter((item) => item !== guest);
         }
         
+        getLink() {
+          return this.link;
+      }
+
+      generateLink(){
+        const meetingId = this.getId();
+        const path = this.path;
+        this.link = new URL(`https://localhost:8080${path}/${meetingId}`); 
+    }
+
+    save(){
+        const newMeeting = {
+            "guests": this.guest,
+            "link": this.link,
+            "startTime": this.startTime,
+            "endTime": this.endTime,
+            "duration": this.duration,
+        };
+        Factory.create(newMeeting)
+    }
       
 }
 module.exports = Meeting
