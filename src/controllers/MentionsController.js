@@ -1,4 +1,4 @@
-const MentionExtractor = require('../utils/MentionExtractor');
+const MentionExtractor = require('../utils/extraerMenciones');
 
 class MentionsController {
   extractMentions(req, res) {
