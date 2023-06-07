@@ -1,10 +1,10 @@
 
 const ExifParser = require('exif-parser');
 const mime = require('mime-types');
-const MetaDataFunc = require('./src/meta-data-func');
+const MetaDataFunc = require('../src/meta-data-func');
 const filePath = './imagen-metadata.jpg';
 const fileContent = MetaDataFunc.loadFileEnVariable(filePath);
-const MetadataApp = require('./src/MetadataApp');
+const MetadataApp = require('../src/MetadataApp');
 
 const datosImagen = ExifParser.create(fileContent); //Se usa la libreria ExifParser para extrar el temaño de la imagen
 const datosObtenidos = datosImagen.parse();
