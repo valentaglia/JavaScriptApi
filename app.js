@@ -15,3 +15,10 @@ app.use('/roles', rolesRouter)
 app.listen(3001, function () {
     console.log('http://localhost:3001/')
 })
+
+
+const mentionsRoutes = require('./routes/mentionsRoutes');
+app.use('/mentions', mentionsRoutes);
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
