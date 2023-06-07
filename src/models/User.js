@@ -38,11 +38,6 @@ class User {
     }
 
     find(email){
-        return email === this.email
-    }
-
-
-    find(email){
         return email === this.#email
     }
 

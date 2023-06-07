@@ -36,7 +36,7 @@ class UserRepository extends Repository {
     }
 
     findByEmail(email) {
-        if (email != "") {
+        if (email === "") {
             throw new Error('Se esperaba un email')
         }
 
