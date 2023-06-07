@@ -20,10 +20,12 @@ app.sendMessage(mensaje1);
 const mensaje2 = 'Hola @director tengo un problema';
 app.sendMessage(mensaje2);
 
+/* 
 try {
-    const result = app.registrar('user@example.com', 'password');
-    console.log(result)
+    const result = app.registrar('nuevo@example.com', 'nuevacontraseña');
+    console.log(result);
 } catch (e) {
-    console.log(e.message)
-}
+    console.log(e.message);
+} */
+
 
