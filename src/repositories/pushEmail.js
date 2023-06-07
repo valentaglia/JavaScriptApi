@@ -1,7 +1,8 @@
 //Importe de libreria
 const nodemailer = require('nodemailer');
-const passwordAplication = require('../validators/passwordNodemailer')
-const dotenv = require('dotenv').config();
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 
     const transporter = nodemailer.createTransport({
