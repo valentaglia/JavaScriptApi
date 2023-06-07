@@ -1,5 +1,5 @@
 const express = require('express');
-const MentionsController = require('../controllers/MentionsController');
+const MentionsController = require('../src/controllers/MentionsController');
 const router = express.Router();
 const controller = new MentionsController();
 
