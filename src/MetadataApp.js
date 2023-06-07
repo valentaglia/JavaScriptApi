@@ -27,6 +27,11 @@ class MetadataApp {
         return metadata
     }
 
+    findIdMetadata(id){
+        const repo = new MetadataRepository
+        return repo.byId(id)
+    }
+
 }
 
 module.exports = MetadataApp
