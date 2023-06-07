@@ -39,3 +39,6 @@ try {
 } catch (e) {
     console.log(e.message)
 }
+
+const resfindById = metadataapp.findIdMetadata(1686103460837)
+console.log(resfindById.getId())
