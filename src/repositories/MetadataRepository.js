@@ -5,6 +5,11 @@ const Repository = require('./Repository')
 class MetadataRepository extends Repository {
     file = './Metadatas.json'
 
+    all(){
+        let metadatasList = "toda la metadata de toda la lista"
+        return metadatasList
+    }
+
     byId(id) {
         if (isNaN(id)) {
             throw new Error('Se esperaba id numerico')
