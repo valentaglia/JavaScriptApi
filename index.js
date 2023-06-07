@@ -29,3 +29,11 @@ try {
 } */
 
 
+
+try {
+    const result = app.registrar('user@example.com', 'password');
+    console.log(result)
+} catch (e) {
+    console.log(e.message)
+}
+

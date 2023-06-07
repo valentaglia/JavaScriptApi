@@ -35,6 +35,22 @@ class UserRepository extends Repository {
         return Factory.make(user)
     }
 
+    findByEmail(email) {
+        if (email != "") {
+            throw new Error('Se esperaba un email')
+        }
+
+        let content = this.read();
+
+        let user = content.find((obj => obj.email == email))
+
+        if (user === undefined) {
+            throw new Error('El usuario no se encontro')
+        }
+
+        return Factory.make(user)
+    }
+
     create(user) {
         if (user instanceof User) {
             this.save({

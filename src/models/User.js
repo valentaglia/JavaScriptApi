@@ -41,6 +41,11 @@ class User {
         return email === this.email
     }
 
+
+    find(email){
+        return email === this.#email
+    }
+
     enviarMensaje(mensaje) {
         let menciones = extraerMenciones(mensaje);
         let mensajeConMenciones = {

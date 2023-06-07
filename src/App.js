@@ -13,6 +13,9 @@ class Application {
         this.version = '1.0.0'
         this.user = null;
         this.chat = null;
+        this.user = null
+        this.contact = null
+        this.chat = new Chat();
     }
 
     registrar(email, password) {
@@ -31,11 +34,13 @@ class Application {
         const repo = new UserRepository
         repo.create(user)
         this.user = user;
+        this.user = user;
         // devolver la instancia del usuario guardado
         return user
     }
 
     login(email, password) {
+        loginValidator(email, password)
         loginValidator(email, password)
 
         // buscar en la base de datos
@@ -51,6 +56,10 @@ class Application {
 
         if (!passwordMatch) {
             throw new Error('La contraseña es incorrecta')
+        }
+
+        if (!bcrypt.compareSync(password, user.getPassword())) {
+            throw new Error("La contraseña es incorrecta")
         }
 
         if (!bcrypt.compareSync(password, user.getPassword())) {
