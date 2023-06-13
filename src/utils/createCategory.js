@@ -1,7 +1,7 @@
-const CategoryRepository = require('./repositories/CategoryRepository')
-const Category = require('./models/Category')
-const CategoryFactory = require('./factories/CategoryFactory')
-const CategoryValidator = require('./validators/categoryValidator')
+const CategoryRepository = require('../repositories/CategoryRepository')
+const Category = require('../models/Category')
+const CategoryFactory = require('../factories/CategoryFactory')
+const CategoryValidator = require('../validators/categoryValidator')
 
 
 function crearCategoria(obj) {
