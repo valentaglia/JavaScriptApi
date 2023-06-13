@@ -1,9 +1,9 @@
 const MentionExtractor = require('../utils/extraerMenciones');
 
 class MentionsController {
-/*     constructor() {
+    constructor() {
         this.repo = new MentionsController
-    } */
+    } 
   extractMentions(req, res) {
     try {
       const message = req.body.message;
