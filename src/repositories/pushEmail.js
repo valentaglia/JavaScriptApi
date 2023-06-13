@@ -1,26 +1,37 @@
 //Importe de libreria
 const nodemailer = require('nodemailer');
+const DataMail = require('../models/DataMail')
+dataMail = new DataMail;
 
-const dotenv = require('dotenv');
-dotenv.config();
+function enviarCorreo(mail, texto) {
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(mail)) {
+      console.log('El correo electrónico proporcionado no tiene una estructura válida.');
+    return;
+    }
+
+    if (texto === null || texto.trim() === '') {
+      console.log('El texto a enviar no puede estar vacío o ser null.');
+      return;
+    }
 
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            user: 'testort2023@gmail.com',
-            pass: process.env.PASSWORD
+            user: dataMail.getSalida(),
+            pass: dataMail.getPass()
         }
       });
 
 
       const mailOptions = {
-        from:"testort2023@gmail.com", 
-        to:"testort2023@gmail.com", 
+        from: dataMail.getSalida(), 
+        to: mail, 
         subject: 'Asunto del correo',
-        text: 'Correo enviado con la password guardada en otra clase'
+        text: texto
       };
 
       transporter.sendMail(mailOptions, function(error, info) {
@@ -30,16 +41,7 @@ dotenv.config();
           console.log('Correo enviado: ' + info.response);
         }
       });
-    
-   /* transporter.sendMail(message, (error, info) => {
-        if (error){
-            console.log(error);
-            res.send(500, err.message);
-        } else {
-            console.log("Email sent");
-            res.status(200).jsonp(req.body);
-        }
-    })
-*/
 
+}
 
+module.exports = enviarCorreo;
