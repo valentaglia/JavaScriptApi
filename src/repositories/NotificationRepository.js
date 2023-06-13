@@ -1,13 +1,19 @@
 const User = require('../models/Notification')
 const Factory = require('../factories/NotificationFactory')
 const Repository = require('./Repository');
+const Notification = require('../models/Notification');
 
 class NotificationRepository extends Repository {
 
   file = './notifications.json';
 
   create(notification) {
-    super.save(notification)
+    super.save({
+      key : notification.getKey(),
+      text : notification.getText(),
+      sendDate : notification.getSendDate(),
+      readDate : notification.getReadDate()
+    })
   }
 
   byId(id) {
@@ -21,7 +27,7 @@ class NotificationRepository extends Repository {
         throw new Error('La notificación no se encontró')
     }
 
-    return Factory.make(notif)
+    return notif;
   }
 }
 
