@@ -14,16 +14,32 @@ class Notification {
         this.#id = id
     }
 
+    getKey() {
+        return this.#key
+    }
+
     setKey(key) {
         this.#key = key
+    }
+
+    getText() {
+        return this.#text
     }
 
     setText(text) {
         this.#text = text
     }
 
+    getSendDate() {
+        return this.#sendDate
+    }
+
     setSendDate(sendDate) {
         this.#sendDate = sendDate
+    }
+
+    getReadDate() {
+        return this.#readDate
     }
 
     setReadDate(readDate) {
