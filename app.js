@@ -10,6 +10,7 @@ app.get('/', function (req, res) {
 })
 
 app.use('/roles', rolesRouter)
+app.use('/meetings',meetingRouter)
 // ... agregar rutas que faltan
 
 app.listen(3001, function () {
