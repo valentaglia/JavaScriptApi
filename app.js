@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 })
 
 app.use('/roles', rolesRouter)
-app.use('/roles', categoryRouter)
+app.use('/categorys', categoryRouter)
 // ... agregar rutas que faltan
 
 app.listen(3001, function () {
