@@ -44,6 +44,8 @@ class Multimedia {
             );
         
             await sto.setImage(resizedImg);
+
+            return resizedImg;
             
         }catch(ex){
             console.log(ex);
