@@ -19,6 +19,3 @@ app.listen(3001, function () {
 
 const mentionsRoutes = require('./routes/mentionsRouter');
 app.use('/mentions', mentionsRoutes);
-app.listen(3001, () => {
-    console.log('Server running on port 3000');
-});
