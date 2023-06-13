@@ -2,7 +2,7 @@ const Store = require('../models/Store')
 const Factory = require('../factories/StoreFactory')
 const Repository = require('./Repository')
 class StoreRepository extends Repository {
-        file = './stores.json'
+        file = './examples/stores.json'
         create(store) {
                 if (store instanceof Store) {
                         this.save({
