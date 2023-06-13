@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json({}))
 
 const rolesRouter = require('./routes/rolesRouter')
+const multimediaRouter = require('./routes/MultimediaRouter')
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')
@@ -11,6 +12,7 @@ app.get('/', function (req, res) {
 
 app.use('/roles', rolesRouter)
 // ... agregar rutas que faltan
+app.use('/multimedia', multimediaRouter);
 
 app.listen(3001, function () {
     console.log('http://localhost:3001/')
