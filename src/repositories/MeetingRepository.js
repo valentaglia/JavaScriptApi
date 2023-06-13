@@ -33,6 +33,20 @@ class MeetingRepository extends Repository {
         return Factory.add(user)
     }
 
+    create(meeting) {
+        if (meeting instanceof Meeting) {
+            this.save({
+                date: meeting.getDate(),
+                time: meeting.getTime(),
+                duration: meeting.getDuration(),
+            })
+
+            return;
+        }
+
+        throw new Error('Se requiere una instancia de Meet')
+    }
+
     
     
 }
