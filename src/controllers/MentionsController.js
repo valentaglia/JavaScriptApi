@@ -2,7 +2,7 @@ const MentionExtractor = require('../utils/extraerMenciones');
 
 class MentionsController {
 /*     constructor() {
-        this.repo = new RoleRepository
+        this.repo = new MentionsController
     } */
   extractMentions(req, res) {
     try {
