@@ -1,34 +1,32 @@
 const MentionRepository = require('../repositories/MentionRepository');
 const MentionExtractor = require('../utils/extraerMenciones');
 
-
 class MentionsController {
   constructor() {
     this.repo = new MentionRepository();
     this.extractor = new MentionExtractor();
-
   }
 
-  extractMentions(req, res) {
+  extractMentions = (req, res) => {
     try {
       const message = req.body.message;
-      const mentions = this.extractor.extract(message);
+      const mentions = this.extractor(message);
       res.json(mentions);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  }
+  };
 
-  index(req, res) {
+  index = (req, res) => {
     try {
       const mentions = this.repo.all();
       res.json(mentions);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  }
+  };
 
-  create(req, res) {
+  create = (req, res) => {
     try {
       // Validaciones de los datos recibidos
       // Guardar la mención en el repositorio
@@ -38,9 +36,9 @@ class MentionsController {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  }
+  };
 
-  update(req, res) {
+  update = (req, res) => {
     try {
       // Validaciones de los datos recibidos
       // Obtener el ID de la mención a actualizar
@@ -53,9 +51,9 @@ class MentionsController {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  }
+  };
 
-  delete(req, res) {
+  delete = (req, res) => {
     try {
       // Obtener el ID de la mención a eliminar
       const { id } = req.params;
@@ -66,7 +64,7 @@ class MentionsController {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  }
+  };
 }
 
 module.exports = MentionsController;

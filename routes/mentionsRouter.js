@@ -1,6 +1,6 @@
-const express = require('express');
+const router = require('express').Router()
 const MentionsController = require('../src/controllers/MentionsController');
-const router = express.Router();
+
 const controller = new MentionsController();
 
 router.post('/extract', controller.extractMentions);
