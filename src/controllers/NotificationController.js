@@ -1,4 +1,5 @@
 const NotificationRepository = require('../repositories/NotificationRepository')
+const NotificationFactory = require('../factories/NotificationFactory')
 
 class NotificationController {
     constructor() {
@@ -31,9 +32,8 @@ class NotificationController {
         }
 
         // guardo
-        this.repo.create({
-            text : req.body.text
-        })
+        const notification = NotificationFactory.make(req.body)
+        this.repo.create(notification)
 
         // respondo
         res.status(201).json({})
