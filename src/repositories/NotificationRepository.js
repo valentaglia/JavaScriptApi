@@ -8,6 +8,7 @@ class NotificationRepository extends Repository {
   file = './notifications.json';
 
   create(notification) {
+    console.log(notification)
     super.save({
       key : notification.getKey(),
       text : notification.getText(),
