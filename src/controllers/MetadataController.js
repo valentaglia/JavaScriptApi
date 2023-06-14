@@ -47,4 +47,4 @@ class MetadataController {
     delete = (req, res) => {}
 }
 
-module.exports = RolesController
+module.exports = MetadataController
