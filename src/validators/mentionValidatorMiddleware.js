@@ -1,4 +1,6 @@
-module.exports = {
+const validator= require('../validators/rolesValidator')
+    
+    module.exports = {
     messageNotEmpty(value){
         if(value.length===0){
             throw new Error ('MESSAGE_IS_EMPTY')
@@ -13,6 +15,8 @@ module.exports = {
         
        
     }
+
+    module.exports=middleware
 
 
 
