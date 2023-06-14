@@ -1,4 +1,4 @@
-const {createCart} = require("../createCart")
+const {createCart} = require("../services/createCart")
 const CartRepository = require("../repositories/CartRepository")
 
 class CartController {
