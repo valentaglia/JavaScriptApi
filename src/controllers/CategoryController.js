@@ -1,4 +1,4 @@
-const { create } = require('../utils/createCategory')
+const  crearCategoria  = require('../utils/createCategory')
 const CategoryRepository = require('../repositories/CategoryRepository')
 
 class CategoryController {
@@ -16,15 +16,17 @@ class CategoryController {
             let category = this.repo.findById(req.params.id)
             res.json(category)
         } catch (e) {
+            console.log(e)
             res.json({ error: e.message() })
         }
     }
 
     create = (req, res) => {
         try {
-            create(req.body)
+            crearCategoria(req.body)
             res.status(201).end('Creado')
         } catch (e) {
+            console.log(e)
             res.status(400).end("INVALID_CREATION")
         }
     }
@@ -46,6 +48,7 @@ class CategoryController {
             category.name = name;
 
         }catch(e){
+            console.log(e)
             res.status(400).end(e.message())
         }
 
@@ -65,6 +68,7 @@ class CategoryController {
                 return res.status(201).json({ message: 'CATEGORY_DELETE' })
             }
         } catch (e) {
+            console.log(e)
             res.status(400).end(e.message())
         }
     }
