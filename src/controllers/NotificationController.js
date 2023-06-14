@@ -6,7 +6,7 @@ class NotificationController {
     }
 
     index = (req, res) => {
-        let notifications = this.repo.all()
+        let notifications = this.repo.index()
     
         res.json(notifications)
     }

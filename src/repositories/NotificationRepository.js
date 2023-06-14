@@ -29,6 +29,10 @@ class NotificationRepository extends Repository {
 
     return notif;
   }
+
+  index() {
+    return [{name : "Notification's Index"}]
+  }
 }
 
   module.exports = NotificationRepository
