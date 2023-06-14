@@ -13,7 +13,7 @@ class NotificationController {
 
     show = (req, res) => {
         try {
-            let notif = this.repo.findById(req.params.id)
+            let notif = this.repo.byId(req.params.id)
             res.json(notif)
         } catch (e) {
             res.json({error: e.message})
