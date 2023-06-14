@@ -1,4 +1,4 @@
-const extraerMenciones = require('./utils/extraerMenciones');
+const extraerMenciones = require('../utils/extraerMenciones');
 
 class User {
     constructor() {
@@ -36,7 +36,7 @@ class User {
     }
 
     find(email){
-        return email === this.#email
+        return email === this.email
     }
 
     enviarMensaje(mensaje) {
