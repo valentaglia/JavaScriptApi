@@ -4,11 +4,15 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json({}))
 
 const rolesRouter = require('./routes/rolesRouter')
+const storeRouter = require('./routes/storeRouter')
+const cartRouter = require('./routes/cartRouter')
 
 
 
 app.use('/roles', rolesRouter)
 // ... agregar rutas que faltan
+app.use('/stores',storeRouter)
+app.use('/carts',cartRouter)
 
 
 const mentionsRoutes = require('./routes/mentionsRouter');
