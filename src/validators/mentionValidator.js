@@ -1,12 +1,12 @@
 module.exports = {
-    messageNotEmpty(data){
-        if(data.name.length===0){
+    messageNotEmpty(value){
+        if(value.length===0){
             throw new Error ('MESSAGE_IS_EMPTY')
         }
     },
 
-    messageNotEmpty(data){
-        if(data.name.length>100){
+    messageLength(data){
+        if(value.length>100){
             throw new Error ('MESSAGE_IS_TOO_LONG')
         }
     },

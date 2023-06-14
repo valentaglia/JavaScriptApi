@@ -4,14 +4,23 @@ const MentionsController = require('../src/controllers/MentionsController');
 const validator = require('../src/validators/mentionValidator')
 
 const controller = new MentionsController();
-function middleware(req, res, next) {
-    // Validar los datos recibidos
-    const validationResult = validator(req.body);
 
-    if (!validationResult.isValid) {
-        // Si la validación falla, responder con un código de estado 400 y los errores de validación
-        return res.status(400).json({ errors: validationResult.errors });
+
+
+function middleware(req, res, next) {
+
+    try {
+        validator.messageNotEmpty(req.body.name)
+        validator.messageLength(req.body.name)
+    } catch (e) {
+        return res.status(400).end(e.message);
+
     }
+    next()
+}
+
+function authorize(req, res, next) {
+
 }
 
 
