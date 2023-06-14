@@ -1,10 +1,13 @@
-const Meet = require('../models/Meet')
-const Factory = require('../factories/MeetFactory')
-const Repository = require('./Repository')
+const Meet = require('../models/Meet');
+const Factory = require('../factories/MeetFactory');
+const Repository = require('./Repository');
 
 class MeetRepository extends Repository {
-    file = './meets.json'
-
+  file = './examples/meets.json';
+    all() {
+        let meet = this.read();
+        return meet;
+    }
     byId(id) {
         if (isNaN(id)) {
             throw new Error('Se esperaba id numerico')
@@ -18,6 +21,28 @@ class MeetRepository extends Repository {
 
         return Factory.make(meet)
     }
+    addGuest(meetId, guest) {
+        if (isNaN(meetId)) {
+          throw new Error('Se esperaba un ID numérico');
+        }
+    
+        let meet = this.byId(meetId);
+        
+    
+        if (meet == null) {
+          throw new Error('No se encontró la reunión');
+        }
+    
+        
+
+        meet.addGuest(guest);
+    
+        this.save(meet);
+    
+        return meet;
+      }
+      
+
 
     create(meet) {
         if (meet instanceof Meet) {
@@ -25,6 +50,7 @@ class MeetRepository extends Repository {
                 date: meet.getDate(),
                 time: meet.getTime(),
                 duration: meet.getDuration(),
+                guests: meet.getGuests()
             })
 
             return;
