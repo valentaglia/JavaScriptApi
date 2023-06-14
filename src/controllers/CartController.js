@@ -17,12 +17,8 @@ class CartController {
         }
     }
     create = (req, res) => {
-        try {
-            createCart(req.body)
-            res.status(201).end("Created")
-        } catch (e) {
-            res.status(400).end(e.message)
-        }
+        this.repo.create(req.body)
+        res.status(201).end("Created")
     }
     update = (req, res) => {
 
