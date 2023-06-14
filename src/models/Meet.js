@@ -2,11 +2,11 @@ class Meet{
     #date
     #time
     #duration
+    guests = []
     
     setDate(date){
         this.#date = date
     }
-
     getDate(){
         return this.#date
     }
@@ -29,6 +29,18 @@ class Meet{
     getDuration(){
         return this.#duration
     }
+    getGuests() {
+        return this.guests;
+      }
+    
+      addGuest(guest) {
+          this.guests.push(guest);
+      }
+
+      removeGuest(guest) {
+        this.guests = this.guests.filter((item) => item !== guest);
+      }
+      
 
 }
 
