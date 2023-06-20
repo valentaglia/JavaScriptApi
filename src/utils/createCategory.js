@@ -5,7 +5,7 @@ const CategoryValidator = require('../validators/categoryValidator')
 
 
 function crearCategoria(obj) {
-    CategoryValidator.categoryValidator(obj.name)
+    CategoryValidator.nameLength(obj.name)
     const category = CategoryFactory.make(obj)
     
     const repoC = new CategoryRepository()
