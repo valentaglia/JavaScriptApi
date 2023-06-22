@@ -1,23 +1,17 @@
 const validator= require('../validators/mentionValidator')
     
-    module.exports = {
-    messageNotEmpty(value){
-        if(value.length===0){
-            throw new Error ('MESSAGE_IS_EMPTY')
-        }
-    },
+function middleware(req, res, next) {
 
-    messageLength(data){
-        if(value.length>100){
-            throw new Error ('MESSAGE_IS_TOO_LONG')
-        }
-    },
-        
-       
+    try {
+        let name= req.body.name
+        validator.messageNotEmpty(name)
+        validator.messageLength(name)
+        validator.nameIncludes(name)
+    } catch (e) {
+        return res.status(400).end(e.message);
+
     }
+    next()
+}
 
-    module.exports = {
-        messageNotEmpty,
-        messageLength,
-        middleware
-      };
+    module.exports=middleware
