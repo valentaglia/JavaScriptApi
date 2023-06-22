@@ -1,4 +1,4 @@
-const validator= require('../validators/rolesValidator')
+const validator= require('../validators/mentionValidator')
     
     module.exports = {
     messageNotEmpty(value){
@@ -16,14 +16,8 @@ const validator= require('../validators/rolesValidator')
        
     }
 
-    module.exports=middleware
-
-
-
-
-
-
-
-
-
-
+    module.exports = {
+        messageNotEmpty,
+        messageLength,
+        middleware
+      };

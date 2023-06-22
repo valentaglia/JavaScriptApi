@@ -2,9 +2,9 @@ const router = require('express').Router()
 
 const MentionsController = require('../src/controllers/MentionsController');
 const validator = require('../src/validators/mentionValidator')
-
+//crear este validator?
 const controller = new MentionsController();
-const validation =require('../src/middlewares/mentionValidationMiddleware')
+const validation =require('../src/validators/mentionValidationMiddleware')
 
 
 function middleware(req, res, next) {
@@ -18,10 +18,6 @@ function middleware(req, res, next) {
     }
     next()
 }
-
-/* function authorize(req, res, next) {
-
-} */
 
 
 router.post('/extract', controller.extractMentions);
