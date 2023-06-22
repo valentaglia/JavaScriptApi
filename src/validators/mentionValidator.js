@@ -1,23 +1,20 @@
 module.exports = {
-    mentionValidator: function (name) {
-      if (typeof name !== "string" || name.trim() === "") {
-        throw new Error('Se esperaba un nombre en formato de texto');
-      }
-  
-      const nameMinLength = 1;
-      const nameMaxLength = 100;
-  
-      if (name.length < nameMinLength) {
-        throw new Error(`El nombre debe tener al menos ${nameMinLength} caracteres`);
-      }
-  
-      if (name.length > nameMaxLength) {
-        throw new Error(`El nombre debe tener como máximo ${nameMaxLength} caracteres`);
-      }
-  
-      if (!name.includes("@")) {
-        throw new Error("El nombre debe contener al menos una mención con '@'");
-      }
+
+    naeNoEmpty(value) {
+        if (value.length === 0) {
+            throw new Error('NAME_IS_EMPTY')
+        }
+    },
+    nameLength(value) {
+        if (value.length > 100) {
+            throw new Error('NAME_TOO_LONG')
+        }
+    },
+    nameIncludes(value) {
+        if (!value.includes("@")) {
+            throw new Error('NAME_CONTAINS_NO_MENTION');
+        }
+
     }
-  };
-  
+};
+
