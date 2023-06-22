@@ -6,7 +6,7 @@ function middleware(req, res, next) {
         let name= req.body.name
         validator.messageNotEmpty(name)
         validator.messageLength(name)
-        validator.nameIncludes(name)
+        validator.messageIncludes(name)
     } catch (e) {
         return res.status(400).end(e.message);
 
