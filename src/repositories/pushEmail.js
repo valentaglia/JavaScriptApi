@@ -2,9 +2,11 @@
 const nodemailer = require('nodemailer');
 const DataMail = require('../models/DataMail')
 dataMail = new DataMail;
+require('dotenv').config();
 
 function enviarCorreo(mail, texto) {
 
+    //Probar con el codigo nuevo
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(mail)) {
       console.log('El correo electrónico proporcionado no tiene una estructura válida.');
