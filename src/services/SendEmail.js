@@ -1,4 +1,4 @@
-const EmailFactory = require('../factories/EmailFactory');
+const EmailFactory = require('../controllers/EmailController');
 
 class emailService {
   sendEmail(to, subject, message) {
