@@ -1,16 +1,16 @@
 module.exports = {
 
-    naeNoEmpty(value) {
+    messageNoEmpty(value) {
         if (value.length === 0) {
             throw new Error('NAME_IS_EMPTY')
         }
     },
-    nameLength(value) {
+    messageLength(value) {
         if (value.length > 100) {
             throw new Error('NAME_TOO_LONG')
         }
     },
-    nameIncludes(value) {
+    messageIncludes(value) {
         if (!value.includes("@")) {
             throw new Error('NAME_CONTAINS_NO_MENTION');
         }
