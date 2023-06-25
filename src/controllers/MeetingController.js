@@ -11,14 +11,6 @@ class MeetingController {
         res.json(meets)
     }
 
-    // show = (req, res) => {
-    //     try {
-    //         let role = this.repo.findById(req.params.id)
-    //         res.json(role)
-    //     } catch (e) {
-    //         res.json({error: e.message})
-    //     }
-    // }
 
     create = (req, res) => {
         let meet = {
@@ -36,7 +28,7 @@ class MeetingController {
     }
     invitarGuest = (req, res) => {
         const id = req.params.id;
-        const guest = req.body.guest;
+        const guest = req.body.guests;
         try {
             const updatedMeet = this.repo.addGuest(id, guest);
             res.json(updatedMeet);
@@ -44,10 +36,7 @@ class MeetingController {
             res.json({ error: error.message });
         }
     }
-    
-    // update = (req, res) => {}
-    
-    // delete = (req, res) => {}
+
 }
 
 module.exports = MeetingController
