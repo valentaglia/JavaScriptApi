@@ -1,11 +1,12 @@
 const router = require ('express').Router()
 const MeetController = require('../src/controllers/MeetController')
 const controller = new MeetController()
+const validation =  require('../src/middlewares/meetValidationMiddelware')
 
 
 router.get ('/', controller.index)
 router.get ('/:id', controller.show)
-router.post ('/', controller.create)
+router.post ('/',validation, controller.create)
 router.put ('/:id', controller.update)
 router.delete ('/:id', controller.delete)
 
