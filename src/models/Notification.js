@@ -42,8 +42,8 @@ class Notification {
         return this.#readDate
     }
 
-    setReadDate(readDate) {
-        this.#readDate = readDate
+    setReadDate() {
+        this.#readDate = Date.now().toString()
     }
 
 }
