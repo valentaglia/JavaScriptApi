@@ -1,18 +1,13 @@
 const NotificationFactory = require('./factories/NotificationFactory')
 const NotificationRepository = require('./repositories/NotificationRepository')
+const NotificationController = require('./controllers/NotificationController.js')
 
+const controller = new NotificationController
 class AppNotification {
 
     saveNotification(data) {
-        // construyo el objeto notification
-        const notification = NotificationFactory.make(data)
-        
-        // guardarlo en la base de datos = Repository
-        const repo = new NotificationRepository
-        repo.create(notification)
-
-        // devolver la instancia de la notificación guardada
-        return notification
+        controller.create(data)
+        return true
     }
 
 
