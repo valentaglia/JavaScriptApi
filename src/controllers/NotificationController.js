@@ -1,4 +1,4 @@
-const NotificationRepository = require('../repositories/NotificationRepository')
+const NotificationRepository = require('../repositories/NotificationRepository');
 
 class NotificationController {
     constructor() {
@@ -21,24 +21,16 @@ class NotificationController {
     }
 
     create = (req, res) => {
-        // valido
-        if (req.body.text.length === 0) {
-            return res.status(422).end('TEXT_IS_EMPTY')
-        }
-
-        if (req.body.text.length > 144) {
-            return res.status(422).end('TEXT_TOO_LONG')
-        }
-
+        const today = new Date();
         this.repo.save({
             id : "",
             key : req.body.key,
             text : req.body.text,
-            sendDate : req.body.sendDate,
-            readDate : req.body.readDate
+            sendDate : today.toISOString(),
+            readDate : null
         })
 
-        // respondo
+        // response
         res.status(201).json({Message : "Se creó la notificación"});
     }
     
@@ -62,9 +54,13 @@ class NotificationController {
         const url = req.originalUrl;
         const parts = url.split('/'); // Divide la URL en partes usando "/" como separador
         const idRoute = parts.pop(); // Elimina el último elemento del array y lo asigna a la variable 'id'
+        console.log(idRoute)
         const today = new Date();
         const result = this.repo.update({
             id : idRoute,
+            key : "",
+            text : "",
+            sendDate : "",
             readDate : today.toISOString()
         })
 
