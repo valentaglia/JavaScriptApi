@@ -5,7 +5,7 @@
 
 function extraerMenciones(mensaje) {
     const regex = /@(\w+)/g;
-    const menciones = mensaje.match(regex);
+    const menciones = mensaje?.match(regex);
     return menciones ? menciones.map(mencion => mencion.replace('@', '')) : [];
 }
 

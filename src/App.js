@@ -11,6 +11,8 @@ class Application {
     constructor() {
         this.name = 'Zoom'
         this.version = '1.0.0'
+        this.user = null;
+        this.chat = null;
         this.user = null
         this.contact = null
         this.chat = new Chat();
@@ -32,11 +34,13 @@ class Application {
         const repo = new UserRepository
         repo.create(user)
         this.user = user;
+        this.user = user;
         // devolver la instancia del usuario guardado
         return user
     }
 
     login(email, password) {
+        loginValidator(email, password)
         loginValidator(email, password)
 
         // buscar en la base de datos
@@ -58,7 +62,15 @@ class Application {
             throw new Error("La contraseña es incorrecta")
         }
 
+        if (!bcrypt.compareSync(password, user.getPassword())) {
+            throw new Error("La contraseña es incorrecta")
+        }
+
         this.user = user
+        this.chat = new Chat(this.user);
+
+
+
 
         return user
     }
@@ -66,6 +78,12 @@ class Application {
     signOut() {
         this.user = null
     }
+
+    sendMessage(message) {
+        this.chat.sendMessage(message);
+    }
+
+
 
     setUser(user) {
         this.user = user;
