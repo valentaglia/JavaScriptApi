@@ -12,6 +12,7 @@ const emailRouter = require('./routes/emailRouter')
 const notificationsRouter = require('./routes/notificationsRouter')
 const mentionsRoutes = require('./routes/mentionsRouter');
 const meetRouter = require('./routes/meetRouter')
+const eventsRouter = require("./routes/getEventsRouter");
 
 app.use('/roles', rolesRouter)
 // ... agregar rutas que faltan
@@ -22,6 +23,7 @@ app.use('/email', emailRouter)
 app.use('/notifications', notificationsRouter)
 app.use('/mentions', mentionsRoutes);
 app.use('/meet', meetRouter)
+app.use('/events',eventsRouter)
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')
