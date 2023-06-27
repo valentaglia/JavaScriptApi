@@ -3,7 +3,7 @@ const fs = require('fs');
 
 class NotificationRepository extends Repository {
 
-  file = 'notifications.json';
+  file = 'examples/notifications.json';
 
   getNotifications() {
     return this.read();
