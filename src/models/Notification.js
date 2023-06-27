@@ -1,30 +1,49 @@
-const NotificationRepository = require('../repositories/NotificationRepository')
-
 class Notification {
 
+    #id
     #key
     #text
     #sendDate
-    #readDate // = null ???
+    #readDate = null
 
-    static send(notification) {
-        NotificationRepository.save(notification);
+    getId() {
+        return this.#id
+    }
+
+    setId(id) {
+        this.#id = id
+    }
+
+    getKey() {
+        return this.#key
     }
 
     setKey(key) {
         this.#key = key
     }
 
+    getText() {
+        return this.#text
+    }
+
     setText(text) {
         this.#text = text
+    }
+
+    getSendDate() {
+        return this.#sendDate
     }
 
     setSendDate(sendDate) {
         this.#sendDate = sendDate
     }
 
-    setReadDate(readDate) {
-        this.#readDate = readDate
+    getReadDate() {
+        return this.#readDate
+    }
+
+    setReadDate() {
+        this.#readDate = Date.now().toString()
     }
 
 }

@@ -9,6 +9,7 @@ const multimediaRouter = require('./routes/MultimediaRouter')
 const storeRouter = require('./routes/storeRouter')
 const cartRouter = require('./routes/cartRouter')
 const emailRouter = require('./routes/emailRouter')
+const notificationsRouter = require('./routes/notificationsRouter')
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')
@@ -20,6 +21,7 @@ app.use('/multimedia', multimediaRouter);
 app.use('/stores',storeRouter)
 app.use('/carts',cartRouter)
 app.use('/email', emailRouter)
+app.use('/notifications', notificationsRouter)
 
 app.listen(3001, function () {
     console.log('http://localhost:3001/')
