@@ -4,6 +4,7 @@ const fs = require('fs');
 const sharp = require('sharp');
 const path = require('path');
 const EXT_SEP = '.';
+const MSG_ERROR_SAVE_IMAGE = 'Error guardando imagen';
 
 class MultimediaStorage {
     
@@ -62,11 +63,16 @@ class MultimediaStorage {
     }
 
     async setImage(image){
-        console.log("Guardar imagen", image);
-        await fs.writeFileSync( 
-            image.getPath(), 
-            image.getBuffer() 
-        );
+        try{
+            //console.log("Guardar imagen", image);
+            await fs.writeFileSync( 
+                image.getPath(), 
+                image.getBuffer() 
+            );
+        } catch(ex){
+            throw(MSG_ERROR_SAVE_IMAGE)
+        }
+        
     }
 
 }
