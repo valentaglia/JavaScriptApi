@@ -39,28 +39,28 @@ class NotificationController {
         const parts = url.split('/'); // Divide la URL en partes usando "/" como separador
         const idRoute = parts.pop(); // Elimina el último elemento del array y lo asigna a la variable 'id'
 
-        this.repo.update({
+        let result = this.repo.update({
             id : idRoute,
             key : req.body.key,
             text : req.body.text,
             sendDate : req.body.sendDate,
             readDate : req.body.readDate
         })
-
-        res.status(201).json({Message : "Se modificó la notificación"});
+        if (result) {
+            res.status(201).json({Message : "Se modificó la notificación"});
+        }
+        else {
+            res.status(404).json({Message : "No se encontró la notificación"});
+        }
     }
 
     read = (req, res) => {
         const url = req.originalUrl;
         const parts = url.split('/'); // Divide la URL en partes usando "/" como separador
         const idRoute = parts.pop(); // Elimina el último elemento del array y lo asigna a la variable 'id'
-        console.log(idRoute)
         const today = new Date();
         const result = this.repo.update({
             id : idRoute,
-            key : "",
-            text : "",
-            sendDate : "",
             readDate : today.toISOString()
         })
 
