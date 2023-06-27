@@ -2,7 +2,7 @@ const Cart = require("../models/Cart");
 const Repository = require("./Repository");
 
 class CartRepository extends Repository {
-    file = './carts.json'
+    file = './examples/carts.json'
     create(cart) {
         if (cart instanceof Cart) {
             this.save({
