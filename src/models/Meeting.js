@@ -1,58 +1,60 @@
-const url = require("url");
 const Factory = require('../factories/MeetingFactory')
 
 class Meeting{
-    id
-    startTime
-    duration
-    endTime
-    guests = []
-        
-    constructor(startTime, endTime, duration) {
-          this.startTime = startTime;
-          this.endTime = endTime;
-          this.duration = duration;
-          this.guests = [];
-          this.generateLink();
-          this.generateId();
-        }
+  constructor(startTime, duration) {
+    this.#startTime = startTime;
+    this.#duration = duration;
+    this.#endTime = null;
+    this.#link = null;
+    this.#guests = [];
+    this.#id = Factory.generateMeetingId();
+}
       
         getId() {
-          return this.id;
+          return this.#id;
         }
 
         getGuests() {
-          return this.guests;
+          return this.#guests;
         }
       
         addGuest(guest) {
-            this.guests.push(guest);
+            this.#guests.push(guest);
         }
 
         removeGuest(guest) {
-          this.guests = this.guests.filter((item) => item !== guest);
+          const index = this.#guests.indexOf(guest);
+          if (index !== -1) {
+              this.#guests.splice(index, 1);
+          }
         }
+
+        setGuests(guests) {
+          this.#guests = guests;
+      }
         
         getLink() {
-          return this.link;
+          return this.#link;
       }
 
-      generateLink(){
-        const meetingId = this.getId();
-        const path = this.path;
-        this.link = new URL(`https://localhost:8080${path}/${meetingId}`); 
+      setLink(link) {
+        this.#link = link;
     }
+    getStartTime() {
+      return this.#startTime;
+  }
 
-    save(){
-        const newMeeting = {
-            "guests": this.guest,
-            "link": this.link,
-            "startTime": this.startTime,
-            "endTime": this.endTime,
-            "duration": this.duration,
-        };
-        Factory.create(newMeeting)
-    }
+  getEndTime() {
+    return this.#endTime;
+}
+
+setEndTime(endTime) {
+  this.#endTime = endTime;
+}
+
+getDuration() {
+  return this.#duration;
+}
       
 }
 module.exports = Meeting
