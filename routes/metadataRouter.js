@@ -6,7 +6,7 @@ const validator = require('../src/middlewares/metadataValidationMiddleware')
 // http://localhost:3001/metadata
 router.get('/', controller.index) // /metadata
 router.get('/:id', controller.show) // /metadata/:id
-router.post('/', validator, controller.create) // /metadata
+router.post('/', validator, controller.create) // /metadata  
 router.put('/:id',controller.update) // /metadata/:id
 router.delete('/:id', controller.delete) // /metadata/:id
 
