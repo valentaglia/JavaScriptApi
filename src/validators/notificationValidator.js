@@ -24,13 +24,13 @@ module.exports = {
     },
 
     sendDateIsEmpty(value) {
-        if (value === 0) {
+        if (value != null && value.length === 0) {
             throw new Error("SEND DATE CAN NOT BE EMPTY");
         }
     },
 
     readDateIsEmpty(value) {
-        if (value === 0) {
+        if (value != null && value.length === 0) {
             throw new Error("READ DATE CAN NOT BE EMPTY");
         }
     },
