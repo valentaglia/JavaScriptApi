@@ -3,7 +3,4 @@
 /src/assets/img
 /src/assets/resized-images
 *.txt
-launch.json
-test.js
-.vscode
-.idea/
+.env
