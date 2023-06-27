@@ -3,10 +3,11 @@ const Factory = require('../factories/MetadataFactory')
 const Repository = require('./Repository')
 
 class MetadataRepository extends Repository {
-    file = './Metadatas.json'
+    file = './examples/Metadatas.json'
 
     all(){
-        let metadatasList = "toda la metadata de toda la lista"
+        let metadatasList = "Lista todos los Metadatos del JSON"
+        //console.log(metadatasList)
         return metadatasList
     }
 
