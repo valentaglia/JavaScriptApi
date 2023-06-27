@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 
 app.use('/roles', rolesRouter)
 // ... agregar rutas que faltan
-app.use('/multimedia', multimediaRouter);
+app.use('/files', multimediaRouter);
 
 app.listen(3001, function () {
     console.log('http://localhost:3001/')
