@@ -13,10 +13,11 @@ const notificationsRouter = require('./routes/notificationsRouter')
 const mentionsRoutes = require('./routes/mentionsRouter');
 const meetRouter = require('./routes/meetRouter')
 const eventsRouter = require("./routes/getEventsRouter");
+const metadataRouter = require('./routes/metadataRouter')
 
 app.use('/roles', rolesRouter)
 app.use('/meetings',meetingRouter)
-// ... agregar rutas que faltan
+app.use('/metadata', metadataRouter)
 app.use('/multimedia', multimediaRouter);
 app.use('/stores',storeRouter)
 app.use('/carts',cartRouter)

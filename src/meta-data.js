@@ -1,10 +1,9 @@
-
 const ExifParser = require('exif-parser');
 const mime = require('mime-types');
-const MetaDataFunc = require('../src/meta-data-func');
-const filePath = './imagen-metadata.jpg';
+const MetaDataFunc = require('./meta-data-func');
+const filePath = './img/imagen-metadata.jpg';
 const fileContent = MetaDataFunc.loadFileEnVariable(filePath);
-const MetadataApp = require('../src/MetadataApp');
+const MetadataApp = require('./MetadataApp');
 
 const datosImagen = ExifParser.create(fileContent); //Se usa la libreria ExifParser para extrar el temaño de la imagen
 const datosObtenidos = datosImagen.parse();
@@ -39,6 +38,3 @@ try {
 } catch (e) {
     console.log(e.message)
 }
-
-const resfindById = metadataapp.findIdMetadata(1686103460837)
-console.log(resfindById.getId())
