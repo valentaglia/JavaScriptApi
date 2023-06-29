@@ -9,45 +9,34 @@ class NotificationRepository extends Repository {
     return this.read();
   }
 
-  readNotification(id) {
-    const today = new Date();
-
-    // obtengo la lista de objetos de notifications.json
-    const notificationList = this.read();
-    const indice = notificationList.findIndex((objeto) => {
-      return objeto.id === id;
-    });
-    
-    if (indice != null) {
-      notificationList[indice].readDate = today.toISOString();
-
-      fs.writeFileSync(this.file, JSON.stringify(notificationList));
-      return true;
-    }
-    else {
-      console.log("NO EXISTE LA NOTIFICACIÓN");
-      return false;
-    }
-  }
-
   update(data) {
     // obtengo la lista de objetos de notifications.json
     const notificationList = this.read();
     const indice = notificationList.findIndex((objeto) => {
-      return objeto.id === data.id;
+      return objeto.id === parseInt(data.id);
     });
-    
-    if (indice != null) {
-      notificationList[indice].key = (data.key != null) ? data.key : notificationList[indice].key;
-      notificationList[indice].text = (data.text != null) ? data.text : notificationList[indice].text;
-      notificationList[indice].sendDate = (data.sendDate != null) ? data.sendDate : notificationList[indice].sendDate;
-      notificationList[indice].readDate = (data.readDate != null) ? data.readDate : notificationList[indice].readDate;
+
+    if (indice != -1) {
+      if (data.key != null) {
+        notificationList[indice].key = data.key;
+      }
+
+      if (data.text != null) {
+        notificationList[indice].text = data.text;
+      }
+
+      if (data.sendDate != null) {
+        notificationList[indice].sendDate = data.sendDate;
+      }
+
+      if (data.readDate != null) {
+        notificationList[indice].readDate = data.readDate;
+      }
 
       fs.writeFileSync(this.file, JSON.stringify(notificationList));
       return true;
     }
     else {
-      console.log("NO EXISTE LA NOTIFICACIÓN A MODIFICAR");
       return false;
     }
   }
@@ -56,10 +45,10 @@ class NotificationRepository extends Repository {
     // obtengo la lista de objetos de notifications.json
     const notificationList = this.read();
     const indice = notificationList.findIndex((objeto) => {
-      return objeto.id === id;
+      return objeto.id === parseInt(id);
     });
 
-    if (indice != null) {
+    if (indice != -1) {
       notificationList.splice(indice, 1); // Elimina 1 elemento a partir del índice dado
 
       fs.writeFileSync(this.file, JSON.stringify(notificationList));
