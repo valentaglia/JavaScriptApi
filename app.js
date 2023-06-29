@@ -19,26 +19,26 @@ const metadataRouter = require('./routes/metadataRouter')
 const categoryRouter = require('./routes/categoryRouter')
 
 app.use('/roles', rolesRouter)
-app.use('/meetings', meetingRouter)
-app.use('/metadata', metadataRouter)
-app.use('/multimedia', multimediaRouter);
-app.use('/stores', storeRouter)
 app.use('/carts', cartRouter)
+app.use('/categories', categoryRouter)
 app.use('/email', emailRouter)
-app.use('/notifications', notificationsRouter)
-app.use('/mentions', mentionsRoutes);
-app.use('/meet', meetRouter)
 app.use('/events', eventsRouter)
 app.use('/files', multimediaRouter);
-app.use('/stores', storeRouter)
-app.use('/carts', cartRouter)
+app.use('/meet', meetRouter)
+app.use('/meetings', meetingRouter)
+app.use('/meets', meetRouter)
+app.use('/mentions', mentionsRoutes);
+app.use('/metadata', metadataRouter)
+app.use('/multimedia', multimediaRouter);
+app.use('/notifications', notificationsRouter)
 app.use('/products', productsRouter)
-app.use('/categories', categoryRouter)
+app.use('/stores', storeRouter)
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')
 })
 
+// ... agregar rutas que faltan
 app.listen(3001, function () {
     console.log('http://localhost:3001/')
 })
