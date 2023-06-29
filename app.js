@@ -12,7 +12,9 @@ const emailRouter = require('./routes/emailRouter')
 const notificationsRouter = require('./routes/notificationsRouter')
 const mentionsRoutes = require('./routes/mentionsRouter');
 const meetRouter = require('./routes/meetRouter')
+const meetingRouter = require('./routes/meetingRouter')
 const eventsRouter = require("./routes/getEventsRouter");
+const productsRouter = require('./routes/productsRouter.js')
 const metadataRouter = require('./routes/metadataRouter')
 
 app.use('/roles', rolesRouter)
@@ -27,6 +29,9 @@ app.use('/mentions', mentionsRoutes);
 app.use('/meet', meetRouter)
 app.use('/events', eventsRouter)
 app.use('/files', multimediaRouter);
+app.use('/stores', storeRouter)
+app.use('/carts', cartRouter)
+app.use('/products', productsRouter)
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')

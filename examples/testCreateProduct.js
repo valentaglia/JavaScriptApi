@@ -1,5 +1,5 @@
 // Importación de la clase App
-const {createProduct} = require('./src/createProduct')
+const {createProduct} = require('../src/createProduct')
 // Instancia de la clase App
 
 
