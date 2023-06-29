@@ -1,6 +1,6 @@
-const StoreFactory = require("./factories/StoreFactory")
-const StoreRepository = require("./repositories/StoreRepository")
-const { createStoreValidator } = require('./validators/createStoreValidator')
+const StoreFactory = require("../factories/StoreFactory")
+const StoreRepository = require("../repositories/StoreRepository")
+const { createStoreValidator } = require('../validators/createStoreValidator')
 
 module.exports = {
     createStore: function (obj) {
