@@ -1,6 +1,10 @@
 /logs
 /node_modules
 /src/assets/img
+/storage/images/*
+/storage/resized-images/*
+!/storage/images/.empty
+!/storage/resized-images/.empty
 /src/assets/resized-images
 *.txt
 .env

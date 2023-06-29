@@ -25,6 +25,7 @@ app.use('/notifications', notificationsRouter)
 app.use('/mentions', mentionsRoutes);
 app.use('/meet', meetRouter)
 app.use('/events',eventsRouter)
+app.use('/files', multimediaRouter);
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')
