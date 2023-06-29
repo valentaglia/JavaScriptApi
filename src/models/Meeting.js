@@ -1,59 +1,68 @@
-const url = require("url");
 const Factory = require('../factories/MeetingFactory')
 
-class Meeting{
-    id
-    startTime
-    duration
-    endTime
-    guests = []
-        
-    constructor(startTime, endTime, duration) {
-          this.startTime = startTime;
-          this.endTime = endTime;
-          this.duration = duration;
-          this.guests = [];
-          this.generateLink();
-          this.generateId();
-        }
-      
-        getId() {
-          return this.id;
-        }
+class Meeting {
+    constructor(startTime, duration) {
+        this.#startTime = startTime;
+        this.#duration = duration;
+        this.#endTime = null;
+        this.#link = null;
+        this.#guests = [];
+        this.#id = Factory.generateMeetingId();
+    }
 
-        getGuests() {
-          return this.guests;
-        }
-      
-        addGuest(guest) {
-            this.guests.push(guest);
-        }
+    getId() {
+        return this.#id;
+    }
 
-        removeGuest(guest) {
-          this.guests = this.guests.filter((item) => item !== guest);
-        }
-        
-        getLink() {
-          return this.link;
-      }
+    getGuests() {
+        return this.#guests;
+    }
 
-      generateLink(){
+    addGuest(guest) {
+        this.#guests.push(guest);
+    }
+
+    removeGuest(guest) {
+        const index = this.#guests.indexOf(guest);
+        if (index !== -1) {
+            this.#guests.splice(index, 1);
+        }
+    }
+
+    setGuests(guests) {
+        this.#guests = guests;
+    }
+
+    getLink() {
+        return this.#link;
+    }
+
+    generateLink() {
         const meetingId = this.getId();
         const path = this.path;
         this.link = new URL(`https://localhost:8080${path}/${meetingId}`);
         return this.link
     }
 
-    save(){
-        const newMeeting = {
-            "guests": this.guest,
-            "link": this.link,
-            "startTime": this.startTime,
-            "endTime": this.endTime,
-            "duration": this.duration,
-        };
-        Factory.create(newMeeting)
+    setLink(link) {
+        this.#link = link;
     }
-      
+
+    getStartTime() {
+        return this.#startTime;
+    }
+
+    getEndTime() {
+        return this.#endTime;
+    }
+
+    setEndTime(endTime) {
+        this.#endTime = endTime;
+    }
+
+    getDuration() {
+        return this.#duration;
+    }
 }
+
 module.exports = Meeting

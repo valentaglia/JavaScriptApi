@@ -1,16 +1,25 @@
-const Meeting = require('../models/Meeting')
+const { ShortUniqueId } = require('short-unique-id');
+const Meeting = require('../models/Meeting');
 
 class MeetingFactory {
+    
     static make(obj) {
-        let meeting = new Meeting
-        
-        meeting.setStart_time(obj.start_time)
-        meeting.setDuration(obj.duration)
-        meeting.setEnd_time(obj.end_time)
+        if (!(obj instanceof Meeting)) {
+            throw new Error('Se espera una instancia de Meeting.');
+        }
 
-        return meeting
+        const meeting = new Meeting(obj.getStartTime(), obj.getDuration());
+        meeting.setEndTime(obj.getEndTime());
+        meeting.setLink(obj.getLink());
+        const guests = obj.getGuests();
+        meeting.setGuests([...guests]);
+        return meeting;
     }
 
+    static generateMeetingId() {
+        const uid = new ShortUniqueId();
+        return uid.randomUUID(10);
+    }
 }
 
-module.exports = MeetingFactory
+module.exports = MeetingFactory;
