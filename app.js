@@ -15,6 +15,7 @@ const meetRouter = require('./routes/meetRouter')
 const eventsRouter = require("./routes/getEventsRouter");
 
 app.use('/roles', rolesRouter)
+app.use('/meetings',meetingRouter)
 // ... agregar rutas que faltan
 app.use('/multimedia', multimediaRouter);
 app.use('/stores',storeRouter)
