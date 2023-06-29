@@ -1,20 +1,19 @@
-module.exports = {
+// Archivo: mentionValidator.js
 
+module.exports = {
     messageNoEmpty(value) {
-        if (value.length === 0) {
-            throw new Error('NAME_IS_EMPTY')
+        if (value.length <= 0) {
+            throw new Error('MESSAGE_IS_EMPTY');
         }
     },
     messageLength(value) {
         if (value.length > 100) {
-            throw new Error('NAME_TOO_LONG')
+            throw new Error('MESSAGE_TOO_LONG');
         }
     },
     messageIncludes(value) {
         if (!value.includes("@")) {
-            throw new Error('NAME_CONTAINS_NO_MENTION');
+            throw new Error('MESSAGE_CONTAINS_NO_MENTION');
         }
-
     }
 };
-

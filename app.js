@@ -1,30 +1,25 @@
-const express = require('express')
-const app = express()
-var bodyParser = require('body-parser')
-app.use(bodyParser.json({}))
+// Archivo: app.js
 
-const rolesRouter = require('./routes/rolesRouter')
-const storeRouter = require('./routes/storeRouter')
-const cartRouter = require('./routes/cartRouter')
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
-
-
-app.use('/roles', rolesRouter)
-// ... agregar rutas que faltan
-app.use('/stores',storeRouter)
-app.use('/carts',cartRouter)
-
-
+const rolesRouter = require('./routes/rolesRouter');
+const storeRouter = require('./routes/storeRouter');
+const cartRouter = require('./routes/cartRouter');
 const mentionsRoutes = require('./routes/mentionsRouter');
-app.use('/mentions', mentionsRoutes); 
 
+app.use('/roles', rolesRouter);
+// ... agregar rutas que faltan
+app.use('/stores', storeRouter);
+app.use('/carts', cartRouter);
+app.use('/mentions', mentionsRoutes);
 
 app.get('/', function (req, res) {
-    res.send('Bienvenido a la app')
-})
+    res.send('Bienvenido a la app');
+});
+
 app.listen(3001, function () {
-    console.log('http://localhost:3001/')
-})
-
-
-
+    console.log('http://localhost:3001/');
+});
