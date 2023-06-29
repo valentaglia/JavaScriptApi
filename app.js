@@ -17,9 +17,11 @@ const eventsRouter = require("./routes/getEventsRouter");
 const productsRouter = require('./routes/productsRouter.js')
 const metadataRouter = require('./routes/metadataRouter')
 const categoryRouter = require('./routes/categoryRouter')
+const conversorRouter = require('./routes/conversorRouter')
 
 app.use('/roles', rolesRouter)
 app.use('/carts', cartRouter)
+app.use('/conversor', conversorRouter)
 app.use('/categories', categoryRouter)
 app.use('/email', emailRouter)
 app.use('/events', eventsRouter)
@@ -38,7 +40,6 @@ app.get('/', function (req, res) {
     res.send('Bienvenido a la app')
 })
 
-// ... agregar rutas que faltan
 app.listen(3001, function () {
     console.log('http://localhost:3001/')
 })
