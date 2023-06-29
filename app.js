@@ -16,6 +16,7 @@ const meetingRouter = require('./routes/meetingRouter')
 const eventsRouter = require("./routes/getEventsRouter");
 const productsRouter = require('./routes/productsRouter.js')
 const metadataRouter = require('./routes/metadataRouter')
+const categoryRouter = require('./routes/categoryRouter')
 
 app.use('/roles', rolesRouter)
 app.use('/meetings', meetingRouter)
@@ -32,6 +33,7 @@ app.use('/files', multimediaRouter);
 app.use('/stores', storeRouter)
 app.use('/carts', cartRouter)
 app.use('/products', productsRouter)
+app.use('/categories', categoryRouter)
 
 app.get('/', function (req, res) {
     res.send('Bienvenido a la app')

@@ -5,7 +5,7 @@ const Category = require('../models/Category')
 
 class CategoryRepository extends Repository{
 
-    file = './Category.json'
+    file = './examples/Category.json'
 
     create(category){
         if(category instanceof Category){
