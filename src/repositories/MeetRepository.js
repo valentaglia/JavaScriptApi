@@ -3,7 +3,7 @@ const Factory = require('../factories/MeetFactory')
 const Repository = require('./Repository')
 
 class MeetRepository extends Repository {
-    file = './meets.json'
+    file = './examples/meets.json'
 
     byId(id) {
         if (isNaN(id)) {

@@ -19,22 +19,52 @@ class MeetingRepository extends Repository {
         return Factory.make(meeting)
     }
 
-    byEmail(user){
-        if(user.email == null){
-            throw new Error('Se esperaba un email')
+    create(meeting) {
+        if (meeting instanceof Meeting) {
+            this.save({
+                date: meeting.getDate(),
+                time: meeting.getTime(),
+                duration: meeting.getDuration(),
+            })
+
+            return;
         }
 
-        let email = this.findByEmail(user.email)
-        if(email == undefined){
-            throw new Error('El usuario con ese mail no se encontro')
-
-        }
-
-        return Factory.add(user)
+        throw new Error('Se requiere una instancia de Meet')
     }
 
-    
-    
+    addGuest(meetId, guest) {
+        if (isNaN(meetId)) {
+            throw new Error('Se esperaba un ID numérico');
+        }
+
+        let meet = this.byId(meetId);
+
+
+        if (meet == null) {
+            throw new Error('No se encontró la reunión');
+        }
+
+        meet.addGuest(guest);
+
+        this.save(meet);
+
+        return meet;
+    }
+
+    byId(id) {
+        if (isNaN(id)) {
+            throw new Error('Se esperaba id numerico')
+        }
+
+        let meet = this.findById(id)
+
+        if (meet === undefined) {
+            throw new Error('El Meet no se encontro')
+        }
+
+        return Factory.make(meet)
+    }
 }
 
 module.exports = MeetingRepository

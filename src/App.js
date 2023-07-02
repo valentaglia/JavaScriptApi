@@ -3,8 +3,6 @@ const {loginValidator} = require('./validators/loginValidator')
 const UserFactory = require('./factories/UserFactory')
 const UserRepository = require('./repositories/UserRepository')
 const bcrypt = require('bcrypt')
-const extraerMenciones = require('./utils/extraerMenciones');
-const User = require('./models/User');
 const Chat = require('./models/Chat');
 
 class Application {
@@ -41,7 +39,6 @@ class Application {
 
     login(email, password) {
         loginValidator(email, password)
-        loginValidator(email, password)
 
         // buscar en la base de datos
         const repo = new UserRepository()
@@ -69,9 +66,6 @@ class Application {
         this.user = user
         this.chat = new Chat(this.user);
 
-
-
-
         return user
     }
 
@@ -82,8 +76,6 @@ class Application {
     sendMessage(message) {
         this.chat.sendMessage(message);
     }
-
-
 
     setUser(user) {
         this.user = user;

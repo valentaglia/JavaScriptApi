@@ -1,16 +1,14 @@
+const Repository = require('../repositories/CalendarRepository')
 class Calendar {
     meetings = []
     constructor() {
       this.meetings = [];
     }
-  
     
+    getMeeting(id){
+      return Repository.byId(id);
+  }
   
-    getMeetingById(id) {
-      return this.meetings[id];
-    }
-  
-    
   }
   
   module.exports = Calendar;

@@ -1,6 +1,6 @@
-const CartFactory = require("./factories/CartFactory")
-const CartRepository = require("./repositories/CartRepository")
-const { createCartValidator } = require('./validators/createCartValidator')
+const CartFactory = require("../factories/CartFactory")
+const CartRepository = require("../repositories/CartRepository")
+const { createCartValidator } = require('../validators/createCartValidator')
 
 module.exports = {
     createCart: function (obj) {

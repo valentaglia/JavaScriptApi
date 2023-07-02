@@ -1,30 +1,18 @@
-const MeetingFactory = require('./factories/MeetingFactory')
-const MeetingRepository = require('./repositories/MeetingRepository')
 
-class Application2 {
-    constructor() {
-        this.name = 'Zoom'
-        this.version = '1.0.0'
-        this.user = null
-    }
+//const {dateValidator} = require('./validators/meetValidator')
+const MeetingFactory = require('./factories/MeetFactory')
+const MeetingRepository = require('./repositories/MeetRepository')
 
-    crearMeeting(start_time, duration, end_time) {
-        // construyo el objeto user = Factory
+module.exports = {
+    crearMeeting: function (date, time, duration) {
+        //dateValidator(date)
         const meeting = MeetingFactory.make({
-            start_time, 
-            duration,
-            end_time
+            date, 
+            time,
+            duration
         })
-        
-        // guardarlo en la base de datos = Repository
         const repo = new MeetingRepository
         repo.create(meeting)
-
-        // devolver la instancia del usuario guardado
         return meeting
     }
-
-    
 }
-
-module.exports = Application2
